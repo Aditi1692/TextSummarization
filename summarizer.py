@@ -12,6 +12,45 @@ import math
 OUTPUT_FILE = "summarizer.html"
 
 
+def preprocess_data(data):
+    # Dict to store preprocessed data
+    preprocessed_data = dict()
+
+    # List to store the lemmatized words
+    lemmatized_words = list()
+
+    # Dictionary to store the order of words
+    word_order_dict = dict()
+    count = 0
+
+    for line in data:
+        # Changed from unicode to string
+        normal_words = line["content"].encode('ascii', 'ignore')
+
+        # Used word tokenizer to tokenize the words
+        tokens = word_tokenize(normal_words)
+        for token in tokens:
+            token = token.lower()
+            # stemmed_words.append(stemmer.stem(token))
+            # Used lemmatizer on the words
+            lemmatized_words.append(lemmatizer.lemmatize(token))
+
+        # Removed stop words
+        lemmatized_words = [word for word in lemmatized_words if word not in stopwords.words('english')]
+        for word in lemmatized_words:
+            word_order_dict[count] = lemmatizer.lemmatize(word)
+            count += 1
+
+        preprocessed_data[line["index"]] = {"words": lemmatized_words, "words_dict": word_order_dict}
+
+        # Reset the values for next line
+        lemmatized_words = list()
+        word_order_dict = dict()
+        count = 0
+
+    return preprocessed_data, word_order_dict
+
+
 # Method to print the top words from LDA
 def print_top_words(model, feature_names, n_top_words, word_order_dict):
     features = list()
@@ -26,6 +65,7 @@ def print_top_words(model, feature_names, n_top_words, word_order_dict):
                 features.append(idx)
     # Sort the indices to get the correct order of words in the sentence
     features.sort()
+
     return " ".join([word_order_dict[i] for i in features])
 
     # for topic_idx, topic in enumerate(model.components_):
@@ -48,8 +88,6 @@ if __name__ == '__main__':
     # Used for LDA. Play around with n_topics and max_iter
     lda = LatentDirichletAllocation(n_topics=1, max_iter=10, learning_method='online', learning_offset=50.,
                                     random_state=0)
-    # List to store the lemmatized words
-    lemmatized_words = list()
 
     write_output = open(OUTPUT_FILE, 'w')
     write_output.write('<html><head><title>Text Summary</title></head> <body><table border="1">')
@@ -58,43 +96,25 @@ if __name__ == '__main__':
     train_data = data[0:int(len(data)*0.8)]
     test_data = data[int(len(data)*0.8):]
 
-    for line in train_data:
-        # Dictionary to store the order of words
-        word_order_dict = dict()
-        count = 0
-        # Changed from unicode to string
-        normal_words = line["content"].encode('ascii', 'ignore')
+    train_data, train_word_dict = preprocess_data(train_data)
+    test_data, test_word_dict = preprocess_data(test_data)
 
-        # Used word tokenizer to tokenize the words
-        tokens = word_tokenize(normal_words)
-        for token in tokens:
-            token = token.lower()
-            # stemmed_words.append(stemmer.stem(token))
-            # Used lemmatizer on the words
-            lemmatized_words.append(lemmatizer.lemmatize(token))
-            word_order_dict[count] = lemmatizer.lemmatize(token)
-            count += 1
-
-        # Removed stop words
-        lemmatized_words = [word for word in lemmatized_words if word not in stopwords.words('english')]
-
+    for sent in train_data:
+        line = train_data[sent]["words"]
         # Perform LDA if there are any words that are lemmatized. Skip if the content is blank
-        if len(lemmatized_words) > 1:
+        if len(line) > 1:
             # Create a vector of each word. It will be used to perform LDA
-            vectors = vectorizer.fit_transform(lemmatized_words)
+            vectors = vectorizer.fit_transform(line)
 
             # Perform LDA on these word vectors
             lda.fit(vectors)
 
-            # Get the top words after performing LDA
+            # Get all the words in the given line
             tf_feature_names = vectorizer.get_feature_names()
 
-
             # Print the top 10 words (if there are more than 10 words). Write output in HTML file
-            write_output.write('<tr><th>' + str(line["index"]) + '</th><td>' +
-                               print_top_words(lda, tf_feature_names, 100, word_order_dict) + '</td></tr>')
-
-        lemmatized_words = list()
+            write_output.write('<tr><th>' + str(sent) + '</th><td>' +
+                        print_top_words(lda, tf_feature_names, 100, train_data[sent]["words_dict"]) + '</td></tr>')
 
     write_output.write('</table></body></html')
     write_output.close()
