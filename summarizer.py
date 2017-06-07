@@ -48,7 +48,7 @@ def preprocess_data(data):
         word_order_dict = dict()
         count = 0
 
-    return preprocessed_data, word_order_dict
+    return preprocessed_data
 
 
 # Method to print the top words from LDA
@@ -96,8 +96,8 @@ if __name__ == '__main__':
     train_data = data[0:int(len(data)*0.8)]
     test_data = data[int(len(data)*0.8):]
 
-    train_data, train_word_dict = preprocess_data(train_data)
-    test_data, test_word_dict = preprocess_data(test_data)
+    train_data = preprocess_data(train_data)
+    test_data = preprocess_data(test_data)
 
     for sent in train_data:
         line = train_data[sent]["words"]
@@ -115,6 +115,21 @@ if __name__ == '__main__':
             # Print the top 10 words (if there are more than 10 words). Write output in HTML file
             write_output.write('<tr><th>' + str(sent) + '</th><td>' +
                         print_top_words(lda, tf_feature_names, 100, train_data[sent]["words_dict"]) + '</td></tr>')
+
+    # Run LDA on test data
+    for sent in test_data:
+        line = test_data[sent]["words"]
+        if len(line) > 1:
+            vectors_test = vectorizer.fit_transform(line)
+
+            lda.fit(vectors_test)
+
+            # Get all the words in the given line
+            tf_feature_names = vectorizer.get_feature_names()
+
+            # Print the top 10 words (if there are more than 10 words). Write output in HTML file
+            write_output.write('<tr><th>' + str(sent) + '</th><td>' +
+                               print_top_words(lda, tf_feature_names, 100, test_data[sent]["words_dict"]) + '</td></tr>')
 
     write_output.write('</table></body></html')
     write_output.close()
