@@ -1,8 +1,11 @@
+from __future__ import division
+
 from nltk.stem import PorterStemmer, SnowballStemmer
 from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
+from sklearn import metrics
 from nltk.tokenize import sent_tokenize, wordpunct_tokenize, word_tokenize
 from nltk.corpus import stopwords
 
@@ -26,6 +29,7 @@ def preprocess_data(data):
     for line in data:
         # Changed from unicode to string
         normal_words = line["content"].encode('ascii', 'ignore')
+        gold_standard = line["contentSimp"].encode('ascii', 'ignore').split()
 
         # Used word tokenizer to tokenize the words
         tokens = word_tokenize(normal_words)
@@ -41,7 +45,8 @@ def preprocess_data(data):
             word_order_dict[count] = lemmatizer.lemmatize(word)
             count += 1
 
-        preprocessed_data[line["index"]] = {"words": lemmatized_words, "words_dict": word_order_dict}
+        preprocessed_data[line["index"]] = {"words": lemmatized_words, "words_dict": word_order_dict,
+                                            "gold_standard": gold_standard}
 
         # Reset the values for next line
         lemmatized_words = list()
@@ -82,8 +87,8 @@ if __name__ == '__main__':
 
     # stemmer = PorterStemmer()                 # You can change the stemmer here. Though I haven't used it
     lemmatizer = WordNetLemmatizer()            # Lemmatizer which shortens the words. e.g.) causes -> cause
-    # vectorizer = TfidfVectorizer()              # Creates vectors of each word
-    vectorizer = CountVectorizer()
+    vectorizer = TfidfVectorizer(ngram_range=(1, 1))              # Creates vectors of each word
+    # vectorizer = CountVectorizer()
 
     # Used for LDA. Play around with n_topics and max_iter
     lda = LatentDirichletAllocation(n_topics=1, max_iter=10, learning_method='online', learning_offset=50.,
@@ -101,6 +106,7 @@ if __name__ == '__main__':
 
     for sent in train_data:
         line = train_data[sent]["words"]
+        gold_standard_summary = train_data[sent]["gold_standard"]
         # Perform LDA if there are any words that are lemmatized. Skip if the content is blank
         if len(line) > 1:
             # Create a vector of each word. It will be used to perform LDA
@@ -112,6 +118,14 @@ if __name__ == '__main__':
             # Get all the words in the given line
             tf_feature_names = vectorizer.get_feature_names()
 
+            # Calculate the ROUGE-1 score
+            predicted_summary = print_top_words(lda, tf_feature_names, 100, train_data[sent]["words_dict"]).\
+                encode('ascii', 'ignore').split()
+            # Find common words between gold standard and predicted summary
+            common_words = set(gold_standard_summary).intersection(set(predicted_summary))
+            # Calculate ROGUE-1 score
+            print "ROUGE-1 for sentence ", sent, " is: ", (len(common_words) / len(gold_standard_summary))
+
             # Print the top 10 words (if there are more than 10 words). Write output in HTML file
             write_output.write('<tr><th>' + str(sent) + '</th><td>' +
                         print_top_words(lda, tf_feature_names, 100, train_data[sent]["words_dict"]) + '</td></tr>')
@@ -119,6 +133,7 @@ if __name__ == '__main__':
     # Run LDA on test data
     for sent in test_data:
         line = test_data[sent]["words"]
+        gold_standard_summary = test_data[sent]["gold_standard"]
         if len(line) > 1:
             vectors_test = vectorizer.fit_transform(line)
 
@@ -126,6 +141,14 @@ if __name__ == '__main__':
 
             # Get all the words in the given line
             tf_feature_names = vectorizer.get_feature_names()
+
+            # Calculate the ROUGE-1 score
+            predicted_summary = print_top_words(lda, tf_feature_names, 100, test_data[sent]["words_dict"]). \
+                encode('ascii', 'ignore').split()
+            # Find common words between gold standard and predicted summary
+            common_words = set(gold_standard_summary).intersection(set(predicted_summary))
+            # Calculate ROGUE-1 score
+            print "ROUGE-1 for sentence ", sent, " is: ", (len(common_words) / len(gold_standard_summary))
 
             # Print the top 10 words (if there are more than 10 words). Write output in HTML file
             write_output.write('<tr><th>' + str(sent) + '</th><td>' +
