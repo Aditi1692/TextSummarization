@@ -8,14 +8,13 @@ from sklearn.decomposition import LatentDirichletAllocation
 from sklearn import metrics
 from nltk.tokenize import sent_tokenize, wordpunct_tokenize, word_tokenize
 from nltk.corpus import stopwords
-from nltk.util import ngrams
-from collections import Counter
+from nltk.util import ngrams, skipgrams
 
+import operator as op
 import json
-import math
+import sys
 
 OUTPUT_FILE = "summarizer.html"
-EVALUATION_METRIC = "L"
 
 def preprocess_data(data):
     # Dict to store preprocessed data
@@ -98,7 +97,7 @@ def calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, n):
 
 # Function to calculate and print ROUGE-L score
 def calculate_rouge_l_score(sent, gold_standard_summary, predicted_summary):
-    # Code to find longest common subsequence
+    # Code to find longest common sub-sequence
     table = [[0] * (len(predicted_summary) + 1) for _ in xrange(len(gold_standard_summary) + 1)]
     for i, ca in enumerate(gold_standard_summary, 1):
         for j, cb in enumerate(predicted_summary, 1):
@@ -117,7 +116,53 @@ def calculate_rouge_l_score(sent, gold_standard_summary, predicted_summary):
     print "F1 score of ROUGE-L for sentence", sent, "is", f1_lcs
 
 
+# Function to calculate and print ROUGE-S score
+def calculate_rouge_s_score(sent, gold_standard_summary, predicted_summary, n):
+    gold_skipgrams = list(skipgrams(gold_standard_summary, n, n))
+    pred_skipgrams = list(skipgrams(predicted_summary, n, n))
+
+    # Find common skipgrams
+    common_skipgrams = set(gold_skipgrams).intersection(set(pred_skipgrams))
+
+    # Find mC2 for calculating the precision, recall and F1 score
+    r = min(2, len(gold_standard_summary) - 2)
+    if r == 0:
+        return 1
+    numer = reduce(op.mul, xrange(len(gold_standard_summary), len(gold_standard_summary) - r, -1))
+    denom = reduce(op.mul, xrange(1, r + 1))
+    gold_skipgram_combinations = numer // denom
+
+    # Find nC2 for calculating the precision, recall and F1 score
+    r = min(2, len(predicted_summary) - 2)
+    if r == 0:
+        return 1
+    numer = reduce(op.mul, xrange(len(predicted_summary), len(predicted_summary) - r, -1))
+    denom = reduce(op.mul, xrange(1, r + 1))
+    pred_skipgram_combinations = numer // denom
+
+    recall_skipgram = len(common_skipgrams) / gold_skipgram_combinations
+    precision_skipgram = len(common_skipgrams) / pred_skipgram_combinations
+
+    beta_value = precision_skipgram / recall_skipgram       # Or beta can be hardcoded as 1
+    f1_skipgram = ((1 + (beta_value ** 2)) * recall_skipgram * precision_skipgram) / (recall_skipgram + ((beta_value ** 2) *
+                                                                                                    precision_skipgram))
+
+    print "Recall of ROUGE-S for sentence", sent, "is", recall_skipgram
+    print "Precision of ROUGE-S for sentence", sent, "is", precision_skipgram
+    print "F1 score of ROUGE-S for sentence", sent, "is", f1_skipgram
+
+
 if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        print("ERROR: Invalid number of arguments. \nUSAGE: summarizer.py < Evaluation_Metric ['N', 'L', 'S', 'A'] >")
+        sys.exit()
+
+    if sys.argv[1] not in ['N', 'L', 'S', 'A']:
+        print("ERROR: Incorrect Metric specified. Use either 'N', 'L', 'S' or 'A")
+        sys.exit()
+
+    EVALUATION_METRIC = sys.argv[1]
+
     with open('data.json') as data_file:
         data = json.load(data_file)
 
@@ -154,18 +199,30 @@ if __name__ == '__main__':
             # Get all the words in the given line
             tf_feature_names = vectorizer.get_feature_names()
 
-            # Calculate the ROUGE-1 score
             predicted_summary = print_top_words(lda, tf_feature_names, 100, train_data[sent]["words_dict"]).\
                 encode('ascii', 'ignore').split()
 
             if EVALUATION_METRIC == 'N':
-                # Find ROUGE score with unigrams and bigrams
+                # Find ROUGE-N score with unigrams and bigrams
                 print "ROUGE-N is a recall based metric"
                 calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 1)
                 calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 2)
             elif EVALUATION_METRIC == 'L':
-                # Find ROUGE score with longest common subsequence
+                # Find ROUGE-L score with longest common subsequence
                 calculate_rouge_l_score(sent, gold_standard_summary, predicted_summary)
+            elif EVALUATION_METRIC == 'S':
+                # Find ROUGE-S score with skip bigram co-occurrence statistics
+                calculate_rouge_s_score(sent, gold_standard_summary, predicted_summary, 2)
+            elif EVALUATION_METRIC == 'A':
+                # Find all ROUGE scores for the given sentence
+                print "SENTENCE", sent
+                calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 1)
+                calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 2)
+                print '-' * 60
+                calculate_rouge_l_score(sent, gold_standard_summary, predicted_summary)
+                print '-' * 60
+                calculate_rouge_s_score(sent, gold_standard_summary, predicted_summary, 2)
+            print '*' * 70
             print
 
             # Print the top 10 words (if there are more than 10 words). Write output in HTML file
@@ -189,13 +246,26 @@ if __name__ == '__main__':
                 encode('ascii', 'ignore').split()
 
             if EVALUATION_METRIC == 'N':
-                # Find ROUGE score with unigrams and bigrams
+                # Find ROUGE-N score with unigrams and bigrams
                 print "ROUGE-N is a recall based metric"
                 calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 1)
                 calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 2)
             elif EVALUATION_METRIC == 'L':
-                # Find ROUGE score with longest common subsequence
+                # Find ROUGE-L score with longest common subsequence
                 calculate_rouge_l_score(sent, gold_standard_summary, predicted_summary)
+            elif EVALUATION_METRIC == 'S':
+                # Find ROUGE-S score with skip bigram co-occurrence statistics
+                calculate_rouge_s_score(sent, gold_standard_summary, predicted_summary, 2)
+            elif EVALUATION_METRIC == 'A':
+                # Find all ROUGE scores for the given sentence
+                print "SENTENCE", sent
+                calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 1)
+                calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 2)
+                print '-' * 60
+                calculate_rouge_l_score(sent, gold_standard_summary, predicted_summary)
+                print '-' * 60
+                calculate_rouge_s_score(sent, gold_standard_summary, predicted_summary, 2)
+            print '*' * 70
             print
 
             # Print the top 10 words (if there are more than 10 words). Write output in HTML file
