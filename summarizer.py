@@ -15,7 +15,7 @@ import json
 import math
 
 OUTPUT_FILE = "summarizer.html"
-
+EVALUATION_METRIC = "L"
 
 def preprocess_data(data):
     # Dict to store preprocessed data
@@ -82,17 +82,39 @@ def print_top_words(model, feature_names, n_top_words, word_order_dict):
         # return (" ".join([feature_names[i]
         #                 for i in features]))
 
-# Method to calculate and print ROUGE score
+
+# Function to calculate and print ROUGE-N score
 def calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, n):
     # Get ngrams for gold standard and predcited summary
     gold_ngram_seq = list(ngrams(gold_standard_summary, n))
     pred_ngram_seq = list(ngrams(predicted_summary, n))
     # Find common ngrams
     common_ngrams = set(gold_ngram_seq).intersection(set(pred_ngram_seq))
-    # Calculate ROUGE score
+    # Calculate ROUGE-N score
     rouge_n_score = len(common_ngrams) / len(gold_ngram_seq)
 
     print "ROUGE -", n, "score for sentence", sent, "is: ", rouge_n_score
+
+
+# Function to calculate and print ROUGE-L score
+def calculate_rouge_l_score(sent, gold_standard_summary, predicted_summary):
+    # Code to find longest common subsequence
+    table = [[0] * (len(predicted_summary) + 1) for _ in xrange(len(gold_standard_summary) + 1)]
+    for i, ca in enumerate(gold_standard_summary, 1):
+        for j, cb in enumerate(predicted_summary, 1):
+            table[i][j] = (
+                table[i - 1][j - 1] + 1 if ca == cb else
+                max(table[i][j - 1], table[i - 1][j]))
+    lcs_length = table[-1][-1]
+    recall_lcs = lcs_length/len(gold_standard_summary)
+    precision_lcs = lcs_length / len(predicted_summary)
+
+    beta_value = precision_lcs/ recall_lcs
+    f1_lcs = ((1 + (beta_value ** 2)) * recall_lcs * precision_lcs) / (recall_lcs + ((beta_value ** 2) * precision_lcs))
+
+    print "Recall of ROUGE-L for sentence", sent, "is", recall_lcs
+    print "Precision of ROUGE-L for sentence", sent, "is", precision_lcs
+    print "F1 score of ROUGE-L for sentence", sent, "is", f1_lcs
 
 
 if __name__ == '__main__':
@@ -136,9 +158,14 @@ if __name__ == '__main__':
             predicted_summary = print_top_words(lda, tf_feature_names, 100, train_data[sent]["words_dict"]).\
                 encode('ascii', 'ignore').split()
 
-            # Find ROUGE score with unigrams and bigrams
-            calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 1)
-            calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 2)
+            if EVALUATION_METRIC == 'N':
+                # Find ROUGE score with unigrams and bigrams
+                print "ROUGE-N is a recall based metric"
+                calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 1)
+                calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 2)
+            elif EVALUATION_METRIC == 'L':
+                # Find ROUGE score with longest common subsequence
+                calculate_rouge_l_score(sent, gold_standard_summary, predicted_summary)
             print
 
             # Print the top 10 words (if there are more than 10 words). Write output in HTML file
@@ -161,12 +188,15 @@ if __name__ == '__main__':
             predicted_summary = print_top_words(lda, tf_feature_names, 100, test_data[sent]["words_dict"]). \
                 encode('ascii', 'ignore').split()
 
-            # Find ROUGE score with unigrams and bigrams
-            calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 1)
-            calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 2)
+            if EVALUATION_METRIC == 'N':
+                # Find ROUGE score with unigrams and bigrams
+                print "ROUGE-N is a recall based metric"
+                calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 1)
+                calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 2)
+            elif EVALUATION_METRIC == 'L':
+                # Find ROUGE score with longest common subsequence
+                calculate_rouge_l_score(sent, gold_standard_summary, predicted_summary)
             print
-            # Find common words between gold standard and predicted summary
-            common_words = set(gold_standard_summary).intersection(set(predicted_summary))
 
             # Print the top 10 words (if there are more than 10 words). Write output in HTML file
             write_output.write('<tr><th>' + str(sent) + '</th><td>' +
