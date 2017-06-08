@@ -8,6 +8,8 @@ from sklearn.decomposition import LatentDirichletAllocation
 from sklearn import metrics
 from nltk.tokenize import sent_tokenize, wordpunct_tokenize, word_tokenize
 from nltk.corpus import stopwords
+from nltk.util import ngrams
+from collections import Counter
 
 import json
 import math
@@ -80,6 +82,18 @@ def print_top_words(model, feature_names, n_top_words, word_order_dict):
         # return (" ".join([feature_names[i]
         #                 for i in features]))
 
+# Method to calculate and print ROUGE score
+def calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, n):
+    # Get ngrams for gold standard and predcited summary
+    gold_ngram_seq = list(ngrams(gold_standard_summary, n))
+    pred_ngram_seq = list(ngrams(predicted_summary, n))
+    # Find common ngrams
+    common_ngrams = set(gold_ngram_seq).intersection(set(pred_ngram_seq))
+    # Calculate ROUGE score
+    rouge_n_score = len(common_ngrams) / len(gold_ngram_seq)
+
+    print "ROUGE -", n, "score for sentence", sent, "is: ", rouge_n_score
+
 
 if __name__ == '__main__':
     with open('data.json') as data_file:
@@ -121,10 +135,11 @@ if __name__ == '__main__':
             # Calculate the ROUGE-1 score
             predicted_summary = print_top_words(lda, tf_feature_names, 100, train_data[sent]["words_dict"]).\
                 encode('ascii', 'ignore').split()
-            # Find common words between gold standard and predicted summary
-            common_words = set(gold_standard_summary).intersection(set(predicted_summary))
-            # Calculate ROGUE-1 score
-            print "ROUGE-1 for sentence ", sent, " is: ", (len(common_words) / len(gold_standard_summary))
+
+            # Find ROUGE score with unigrams and bigrams
+            calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 1)
+            calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 2)
+            print
 
             # Print the top 10 words (if there are more than 10 words). Write output in HTML file
             write_output.write('<tr><th>' + str(sent) + '</th><td>' +
@@ -145,10 +160,13 @@ if __name__ == '__main__':
             # Calculate the ROUGE-1 score
             predicted_summary = print_top_words(lda, tf_feature_names, 100, test_data[sent]["words_dict"]). \
                 encode('ascii', 'ignore').split()
+
+            # Find ROUGE score with unigrams and bigrams
+            calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 1)
+            calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, 2)
+            print
             # Find common words between gold standard and predicted summary
             common_words = set(gold_standard_summary).intersection(set(predicted_summary))
-            # Calculate ROGUE-1 score
-            print "ROUGE-1 for sentence ", sent, " is: ", (len(common_words) / len(gold_standard_summary))
 
             # Print the top 10 words (if there are more than 10 words). Write output in HTML file
             write_output.write('<tr><th>' + str(sent) + '</th><td>' +
