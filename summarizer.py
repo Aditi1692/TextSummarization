@@ -10,11 +10,21 @@ from nltk.tokenize import sent_tokenize, wordpunct_tokenize, word_tokenize
 from nltk.corpus import stopwords
 from nltk.util import ngrams, skipgrams
 
+from sumy.parsers.plaintext import PlaintextParser
+from sumy.nlp.tokenizers import Tokenizer
+from sumy.nlp.stemmers import Stemmer
+from sumy.summarizers.lsa import LsaSummarizer
+from sumy.summarizers.lex_rank import LexRankSummarizer
+from sumy.summarizers.text_rank import TextRankSummarizer
+from sumy.utils import get_stop_words
+
 import operator as op
 import json
 import sys
 
 OUTPUT_FILE = "summarizer.html"
+LANGUAGE = "english"
+SENTENCES_COUNT = 100
 
 def preprocess_data(data):
     # Dict to store preprocessed data
@@ -55,6 +65,35 @@ def preprocess_data(data):
         count = 0
 
     return preprocessed_data
+
+
+def perform_sumy_summarization(data):
+    stemmer = Stemmer(LANGUAGE)
+
+    summarizers = [LsaSummarizer(stemmer), LexRankSummarizer(stemmer), TextRankSummarizer(stemmer)]
+
+    print "SUMY Scores: "
+    # Read each sentence from 'data' and create a summary on it
+    for line in data:
+        # Only consider the content part of the text. Changed it from unicode to normal string
+        # summarized_text = line["content"].encode('ascii', 'ignore')
+        summarized_text = line["content"]
+        gold_standard = line["contentSimp"]
+
+        # Read line by line instead of reading the entire file
+        parser = PlaintextParser.from_string(summarized_text, Tokenizer(LANGUAGE))
+
+        for summarizer in summarizers:
+            summarizer.stop_words = get_stop_words(LANGUAGE)
+            print "SUMY with", summarizer
+            for sentence in summarizer(parser.document, SENTENCES_COUNT):
+            # Store output in a dictionary in the form of a key-value pair
+            # Example -->  1: 'with the exception of the elderly and the youth'
+                calculate_rouge_n_score(line["index"], gold_standard, str(sentence), 1)
+                calculate_rouge_n_score(line["index"], gold_standard, str(sentence), 2)
+                calculate_rouge_l_score(line["index"], gold_standard, str(sentence))
+                calculate_rouge_s_score(line["index"], gold_standard,str(sentence), 2)
+                print '*' * 70
 
 
 # Method to print the top words from LDA
@@ -146,7 +185,6 @@ def calculate_rouge_s_score(sent, gold_standard_summary, predicted_summary, n):
     beta_value = precision_skipgram / recall_skipgram       # Or beta can be hardcoded as 1
     f1_skipgram = ((1 + (beta_value ** 2)) * recall_skipgram * precision_skipgram) / (recall_skipgram + ((beta_value ** 2) *
                                                                                                     precision_skipgram))
-
     print "Recall of ROUGE-S for sentence", sent, "is", recall_skipgram
     print "Precision of ROUGE-S for sentence", sent, "is", precision_skipgram
     print "F1 score of ROUGE-S for sentence", sent, "is", f1_skipgram
@@ -171,6 +209,9 @@ if __name__ == '__main__':
     vectorizer = TfidfVectorizer(ngram_range=(1, 1))              # Creates vectors of each word
     # vectorizer = CountVectorizer()
 
+    # Run SUMY and note the output
+    perform_sumy_summarization(data)
+
     # Used for LDA. Play around with n_topics and max_iter
     lda = LatentDirichletAllocation(n_topics=1, max_iter=10, learning_method='online', learning_offset=50.,
                                     random_state=0)
@@ -184,7 +225,9 @@ if __name__ == '__main__':
 
     train_data = preprocess_data(train_data)
     test_data = preprocess_data(test_data)
+    processed_data = preprocess_data(data)
 
+    print "LDA Values:"
     for sent in train_data:
         line = train_data[sent]["words"]
         gold_standard_summary = train_data[sent]["gold_standard"]

@@ -1,5 +1,6 @@
 # Text Summarization
 - Aditi Jain
+- Nipun Bayas
 
 ## Purpose
 
