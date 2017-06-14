@@ -17,4 +17,4 @@ In order to run the program, use the following command:
 * https://en.wikipedia.org/wiki/Automatic_summarization#Evaluation_techniques
 * http://www.aclweb.org/anthology/W/W04/W04-1013.pdf
 * https://rare-technologies.com/text-summarization-in-python-extractive-vs-abstractive-techniques-revisited/
-
+* http://glowingpython.blogspot.com/2014/09/text-summarization-with-nltk.html
