@@ -29,6 +29,8 @@ LANGUAGE = "english"
 SENTENCES_COUNT = 100
 METRICS_SCORE_FILE = "metrics.html"
 output_scores = dict()
+sumy_scores_dict = dict()
+lda_scores_dict = dict()
 
 
 def preprocess_data(data):
@@ -75,7 +77,8 @@ def preprocess_data(data):
 def perform_sumy_summarization(data):
     stemmer = Stemmer(LANGUAGE)
 
-    summarizers = [LsaSummarizer(stemmer), LexRankSummarizer(stemmer), TextRankSummarizer(stemmer)]
+    summarizers = [LsaSummarizer(stemmer), TextRankSummarizer(stemmer), LexRankSummarizer(stemmer)]
+    summarizer_names = ["Lsa", "TextRank", "LexRank"]
 
     # print "SUMY Scores: "
     # Read each sentence from 'data' and create a summary on it
@@ -87,15 +90,19 @@ def perform_sumy_summarization(data):
 
         # Read line by line instead of reading the entire file
         parser = PlaintextParser.from_string(summarized_text, Tokenizer(LANGUAGE))
-
+        idx = 0
         for summarizer in summarizers:
             # Store the scores in a dictionary
             output_scores[line["index"]] = []
+            sumy_dict_key = str(line["index"]) + summarizer_names[idx]
+            sumy_scores_dict[sumy_dict_key] = []
             summarizer.stop_words = get_stop_words(LANGUAGE)
             # print "SUMY with", summarizer
             for sentence in summarizer(parser.document, SENTENCES_COUNT):
-                if int(line["index"]) in output_scores:
+                if line["index"] in output_scores:
                     output_scores[line["index"]] = []
+                if sumy_dict_key in sumy_scores_dict[sumy_dict_key]:
+                    continue
                 # Store output in a dictionary in the form of a key-value pair
                 # Example -->  1: 'with the exception of the elderly and the youth'
                 output_scores[int(line["index"])].append({"sumy_rouge_unigrams":
@@ -106,7 +113,11 @@ def perform_sumy_summarization(data):
                                         calculate_rouge_l_score(line["index"], gold_standard, str(sentence))})
                 output_scores[int(line["index"])].append({"sumy_rouge_s":
                                         calculate_rouge_s_score(line["index"], gold_standard,str(sentence), 2)})
-                # print '*' * 70
+                sumy_scores_dict[sumy_dict_key].append(calculate_rouge_n_score(line["index"], gold_standard, str(sentence), 1))
+                sumy_scores_dict[sumy_dict_key].append(calculate_rouge_n_score(line["index"], gold_standard, str(sentence), 2))
+                sumy_scores_dict[sumy_dict_key].append(calculate_rouge_l_score(line["index"], gold_standard, str(sentence)))
+                sumy_scores_dict[sumy_dict_key].append(calculate_rouge_s_score(line["index"], gold_standard,str(sentence), 2))
+            idx += 1
 
 
 def perform_mallet_summarization(data, mallet_data):
@@ -274,8 +285,8 @@ if __name__ == '__main__':
     write_metrics_output = open(METRICS_SCORE_FILE, 'w')
     write_metrics_output.write('<html><head><title>Metrics Output</title><style>td, th { padding:10px 5px; }</style></head> <body>')
     write_metrics_output.write('<table align="center" border="1" style="font-family:Arial, sans-serif;">')
-    write_metrics_output.write('<tr style="padding:10px 5px;"><th rowspan="2">Sentence Index<br></th><th rowspan="2">Metric<br></th>')
-    write_metrics_output.write('<th colspan="3">SUMY</th>')
+    write_metrics_output.write('<tr style="padding:5px 5px;"><th rowspan="2">Sentence Index<br></th><th rowspan="2">Metric<br></th>')
+    write_metrics_output.write('<th colspan="3">SUMY LexRank</th>')
     write_metrics_output.write('<th colspan="3">LDA</th></tr>')
 
     write_metrics_output.write('<tr align="center"><td><b>Precision</b></td><td><b>Recall</b></td><td><b>F1 Score</b></td>')
@@ -385,7 +396,9 @@ if __name__ == '__main__':
     #         write_output.write('<tr><th>' + str(sent) + '</th><td>' +
     #                        print_top_words(lda, tf_feature_names, 100, test_data[sent]["words_dict"]) + '</td></tr>')
 
+    # print output_scores[7][4]
     for score in output_scores:
+        # print "Score is: ", score
         if not output_scores[score]:
             continue
 
