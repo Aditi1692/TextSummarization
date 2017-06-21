@@ -81,7 +81,7 @@ def perform_sumy_summarization(data):
     summarizer_names = ["Lsa", "TextRank", "LexRank"]
 
     # print "SUMY Scores: "
-    # Read each sentence from 'data' and create a summary on it
+    # Read each sentence from 'data' and create a summary of it
     for line in data:
         # Only consider the content part of the text. Changed it from unicode to normal string
         # summarized_text = line["content"].encode('ascii', 'ignore')
@@ -121,22 +121,23 @@ def perform_sumy_summarization(data):
 
 
 def perform_mallet_summarization(data, mallet_data):
-    # print "SUMY Scores: "
-    # Read each sentence from 'data' and create a summary on it
+    # Read each sentence from 'mallet_data' and create a summary of it
     for line in data:
         # Only consider the content part of the text. Changed it from unicode to normal string
         # summarized_text = line["content"].encode('ascii', 'ignore')
         gold_standard = line["contentSimp"]
 
         for sentence in mallet_data:
-
+            if sentence == "\n":
+                continue
+            print sentence
             # Store the scores in a dictionary
             output_scores[line["index"]] = []
 
             # Store output in a dictionary in the form of a key-value pair
             # Example -->  1: 'with the exception of the elderly and the youth'
             output_scores[int(line["index"])].append({"mallet_rouge_unigrams":
-                                                              calculate_rouge_n_score(line["index"], gold_standard,
+                                                              calculate_rouge_n_score(line["index", gold_standard,
                                                                                       str(sentence), 1)})
             output_scores[int(line["index"])].append({"mallet_rouge_bigrams":
                                                               calculate_rouge_n_score(line["index"], gold_standard,
@@ -182,7 +183,10 @@ def calculate_rouge_n_score(sent, gold_standard_summary, predicted_summary, n):
     # Find common ngrams
     common_ngrams = set(gold_ngram_seq).intersection(set(pred_ngram_seq))
     # Calculate ROUGE-N score
-    rouge_n_score = len(common_ngrams) / len(gold_ngram_seq)
+    if len(gold_ngram_seq) != 0:
+        rouge_n_score = len(common_ngrams) / len(gold_ngram_seq)
+    else:
+        rouge_n_score = 0
 
     # print "ROUGE -", n, "score for sentence", sent, "is: ", rouge_n_score
     return ['NA', round(rouge_n_score, 4), 'NA']
@@ -270,6 +274,7 @@ if __name__ == '__main__':
     # Run SUMY and note the output
     perform_sumy_summarization(data)
 
+    # Get the mallet data and calculate the ROUGE scores
     with open('mallet_data.txt') as f:
         mallet_data = f.readlines()
 
