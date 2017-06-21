@@ -121,30 +121,26 @@ def perform_sumy_summarization(data):
 
 
 def perform_mallet_summarization(data, mallet_data):
-    # Read each sentence from 'mallet_data' and create a summary of it
-    for line in data:
-        # Only consider the content part of the text. Changed it from unicode to normal string
-        # summarized_text = line["content"].encode('ascii', 'ignore')
-        gold_standard = line["contentSimp"]
+    # Read each line from data and sentence from 'mallet_data' and create a summary of it
+    for line, sentence in zip(data, mallet_data):
+        # Only consider the content_simp part of the text. Changed it from unicode to normal string
+        gold_standard = line["contentSimp"].encode('ascii', 'ignore')
 
-        for sentence in mallet_data:
-            if sentence == "\n":
-                continue
-            # Store the scores in a dictionary
-            output_scores[line["index"]] = []
+        # Store the scores in a dictionary
+        output_scores[line["index"]] = []
 
-            # Store output in a dictionary in the form of a key-value pair
-            # Example -->  1: 'with the exception of the elderly and the youth'
-            output_scores[int(line["index"])].append({"mallet_rouge_unigrams":
+        # Store output in a dictionary in the form of a key-value pair
+        # Example -->  1: 'with the exception of the elderly and the youth'
+        output_scores[int(line["index"])].append({"mallet_rouge_unigrams":
                                                               calculate_rouge_n_score(line["index"], gold_standard,
                                                                                       str(sentence), 1)})
-            output_scores[int(line["index"])].append({"mallet_rouge_bigrams":
+        output_scores[int(line["index"])].append({"mallet_rouge_bigrams":
                                                               calculate_rouge_n_score(line["index"], gold_standard,
                                                                                       str(sentence), 2)})
-            output_scores[int(line["index"])].append({"mallet_rouge_l":
+        output_scores[int(line["index"])].append({"mallet_rouge_l":
                                                               calculate_rouge_l_score(line["index"], gold_standard,
                                                                                       str(sentence))})
-            output_scores[int(line["index"])].append({"mallet_rouge_s":
+        output_scores[int(line["index"])].append({"mallet_rouge_s":
                                                               calculate_rouge_s_score(line["index"], gold_standard,
                                                                                       str(sentence), 2)})
                 # print '*' * 70
@@ -201,8 +197,16 @@ def calculate_rouge_l_score(sent, gold_standard_summary, predicted_summary):
                 table[i - 1][j - 1] + 1 if ca == cb else
                 max(table[i][j - 1], table[i - 1][j]))
     lcs_length = table[-1][-1]
-    recall_lcs = lcs_length/len(gold_standard_summary)
-    precision_lcs = lcs_length / len(predicted_summary)
+    if len(gold_standard_summary) != 0:
+        recall_lcs = lcs_length/len(gold_standard_summary)
+    else:
+        recall_lcs = 0
+
+    if len(predicted_summary) != 0:
+        precision_lcs = lcs_length / len(predicted_summary)
+    else:
+        precision_lcs = 0
+
     if(recall_lcs != 0):
         beta_value = precision_lcs/ recall_lcs
         f1_lcs = ((1 + (beta_value ** 2)) * recall_lcs * precision_lcs) / (recall_lcs + ((beta_value ** 2) * precision_lcs))
@@ -227,24 +231,45 @@ def calculate_rouge_s_score(sent, gold_standard_summary, predicted_summary, n):
     r = min(2, len(gold_standard_summary) - 2)
     if r == 0:
         return 1
-    numerator = reduce(op.mul, xrange(len(gold_standard_summary), len(gold_standard_summary) - r, -1))
-    denominator = reduce(op.mul, xrange(1, r + 1))
-    gold_skipgram_combinations = numerator // denominator
+
+    if len(gold_standard_summary) != 0:
+        numerator = reduce(op.mul, xrange(len(gold_standard_summary), len(gold_standard_summary) - r, -1))
+        denominator = reduce(op.mul, xrange(1, r + 1))
+        gold_skipgram_combinations = numerator // denominator
+    else:
+        gold_skipgram_combinations = 0
 
     # Find nC2 for calculating the precision, recall and F1 score
-    r = min(2, len(predicted_summary) - 2)
-    if r == 0:
-        return [1, 1, 1]
-    numerator = reduce(op.mul, xrange(len(predicted_summary), len(predicted_summary) - r, -1))
-    denominator = reduce(op.mul, xrange(1, r + 1))
-    pred_skipgram_combinations = numerator // denominator
+    if len(predicted_summary) != 0:
+        r = min(2, len(predicted_summary) - 2)
+        if r == 0:
+            return [1, 1, 1]
+        numerator = reduce(op.mul, xrange(len(predicted_summary), len(predicted_summary) - r, -1))
+        denominator = reduce(op.mul, xrange(1, r + 1))
+        pred_skipgram_combinations = numerator // denominator
+    else:
+        pred_skipgram_combinations = 0
 
-    recall_skipgram = len(common_skipgrams) / gold_skipgram_combinations
-    precision_skipgram = len(common_skipgrams) / pred_skipgram_combinations
+    if gold_skipgram_combinations != 0:
+        recall_skipgram = len(common_skipgrams) / gold_skipgram_combinations
+    else:
+        recall_skipgram = 0
 
-    beta_value = precision_skipgram / recall_skipgram       # Or beta can be hardcoded as 1
-    f1_skipgram = ((1 + (beta_value ** 2)) * recall_skipgram * precision_skipgram) / (recall_skipgram + ((beta_value ** 2) *
+    if pred_skipgram_combinations != 0:
+        precision_skipgram = len(common_skipgrams) / pred_skipgram_combinations
+    else:
+        precision_skipgram = 0
+
+    if recall_skipgram != 0:
+        beta_value = precision_skipgram / recall_skipgram       # Or beta can be hardcoded as 1
+    else:
+        beta_value = 1
+
+    if (recall_skipgram + ((beta_value ** 2) * precision_skipgram)) != 0:
+        f1_skipgram = ((1 + (beta_value ** 2)) * recall_skipgram * precision_skipgram) / (recall_skipgram + ((beta_value ** 2) *
                                                                                                     precision_skipgram))
+    else:
+        f1_skipgram = 0
     # print "Recall of ROUGE-S for sentence", sent, "is", recall_skipgram
     # print "Precision of ROUGE-S for sentence", sent, "is", precision_skipgram
     # print "F1 score of ROUGE-S for sentence", sent, "is", f1_skipgram
@@ -273,8 +298,13 @@ if __name__ == '__main__':
     # Run SUMY and note the output
     perform_sumy_summarization(data)
 
+    with open('mallet_data.txt') as infile, open('mallet_output.txt', 'w') as outfile:
+        for line in infile:
+            if not line.strip(): continue  # skip the empty line
+            outfile.write(line) 
+
     # Get the mallet data and calculate the ROUGE scores
-    with open('mallet_data.txt') as f:
+    with open('mallet_output.txt') as f:
         mallet_data = f.readlines()
 
     perform_mallet_summarization(data, mallet_data)
