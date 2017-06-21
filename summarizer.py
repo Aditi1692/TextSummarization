@@ -109,6 +109,35 @@ def perform_sumy_summarization(data):
                 # print '*' * 70
 
 
+def perform_mallet_summarization(data, mallet_data):
+    # print "SUMY Scores: "
+    # Read each sentence from 'data' and create a summary on it
+    for line in data:
+        # Only consider the content part of the text. Changed it from unicode to normal string
+        # summarized_text = line["content"].encode('ascii', 'ignore')
+        gold_standard = line["contentSimp"]
+
+        for sentence in mallet_data:
+
+            # Store the scores in a dictionary
+            output_scores[line["index"]] = []
+
+            # Store output in a dictionary in the form of a key-value pair
+            # Example -->  1: 'with the exception of the elderly and the youth'
+            output_scores[int(line["index"])].append({"mallet_rouge_unigrams":
+                                                              calculate_rouge_n_score(line["index"], gold_standard,
+                                                                                      str(sentence), 1)})
+            output_scores[int(line["index"])].append({"mallet_rouge_bigrams":
+                                                              calculate_rouge_n_score(line["index"], gold_standard,
+                                                                                      str(sentence), 2)})
+            output_scores[int(line["index"])].append({"mallet_rouge_l":
+                                                              calculate_rouge_l_score(line["index"], gold_standard,
+                                                                                      str(sentence))})
+            output_scores[int(line["index"])].append({"mallet_rouge_s":
+                                                              calculate_rouge_s_score(line["index"], gold_standard,
+                                                                                      str(sentence), 2)})
+                # print '*' * 70
+
 # Method to print the top words from LDA
 def print_top_words(model, feature_names, n_top_words, word_order_dict):
     features = list()
@@ -160,9 +189,11 @@ def calculate_rouge_l_score(sent, gold_standard_summary, predicted_summary):
     lcs_length = table[-1][-1]
     recall_lcs = lcs_length/len(gold_standard_summary)
     precision_lcs = lcs_length / len(predicted_summary)
-
-    beta_value = precision_lcs/ recall_lcs
-    f1_lcs = ((1 + (beta_value ** 2)) * recall_lcs * precision_lcs) / (recall_lcs + ((beta_value ** 2) * precision_lcs))
+    if(recall_lcs != 0):
+        beta_value = precision_lcs/ recall_lcs
+        f1_lcs = ((1 + (beta_value ** 2)) * recall_lcs * precision_lcs) / (recall_lcs + ((beta_value ** 2) * precision_lcs))
+    else:
+        f1_lcs = 0
 
     # print "Recall of ROUGE-L for sentence", sent, "is", recall_lcs
     # print "Precision of ROUGE-L for sentence", sent, "is", precision_lcs
@@ -227,6 +258,11 @@ if __name__ == '__main__':
 
     # Run SUMY and note the output
     perform_sumy_summarization(data)
+
+    with open('mallet_data.txt') as f:
+        mallet_data = f.readlines()
+
+    perform_mallet_summarization(data, mallet_data)
 
     # Used for LDA. Play around with n_topics and max_iter
     lda = LatentDirichletAllocation(n_topics=1, max_iter=10, learning_method='online', learning_offset=50.,
@@ -298,6 +334,7 @@ if __name__ == '__main__':
                 # print '-' * 60
                 output_scores[int(sent)].append({"lda_rouge_s":
                                         calculate_rouge_s_score(sent, gold_standard_summary, predicted_summary, 2)})
+
             # print '*' * 70
             # print
 
@@ -366,7 +403,7 @@ if __name__ == '__main__':
                                    '</td><td>' + str(output_scores[score][5]['lda_rouge_bigrams'][0]) +
                                    '</td><td>' + str(output_scores[score][5]['lda_rouge_bigrams'][1]) +
                                    '</td><td>' + str(output_scores[score][5]['lda_rouge_bigrams'][2]) + '</td></tr>')
-        write_metrics_output.write('<tr align="center"><td>Rouge L</td><td>' +
+        """write_metrics_output.write('<tr align="center"><td>Rouge L</td><td>' +
                                    str(output_scores[score][2]["sumy_rouge_l"][0]) +
                                    '</td><td>' + str(output_scores[score][2]["sumy_rouge_l"][1]) +
                                    '</td><td>' + str(output_scores[score][2]["sumy_rouge_l"][2]) +
@@ -379,9 +416,9 @@ if __name__ == '__main__':
                                    '</td><td>' + str(output_scores[score][3]["sumy_rouge_s"][2]) +
                                    '</td><td>' + str(output_scores[score][7]['lda_rouge_s'][0]) +
                                    '</td><td>' + str(output_scores[score][7]['lda_rouge_s'][1]) +
-                                   '</td><td>' + str(output_scores[score][7]['lda_rouge_s'][2]) + '</td></tr>')
+                                   '</td><td>' + str(output_scores[score][7]['lda_rouge_s'][2]) + '</td></tr>')"""
 
-    write_output.write('</table></body></html')
+    write_output.write('</table></body></html>')
     write_output.close()
     write_metrics_output.write('</table></body></html>')
     write_metrics_output.close()
