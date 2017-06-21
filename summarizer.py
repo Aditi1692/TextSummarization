@@ -130,14 +130,13 @@ def perform_mallet_summarization(data, mallet_data):
         for sentence in mallet_data:
             if sentence == "\n":
                 continue
-            print sentence
             # Store the scores in a dictionary
             output_scores[line["index"]] = []
 
             # Store output in a dictionary in the form of a key-value pair
             # Example -->  1: 'with the exception of the elderly and the youth'
             output_scores[int(line["index"])].append({"mallet_rouge_unigrams":
-                                                              calculate_rouge_n_score(line["index", gold_standard,
+                                                              calculate_rouge_n_score(line["index"], gold_standard,
                                                                                       str(sentence), 1)})
             output_scores[int(line["index"])].append({"mallet_rouge_bigrams":
                                                               calculate_rouge_n_score(line["index"], gold_standard,
