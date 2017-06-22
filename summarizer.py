@@ -33,7 +33,7 @@ sumy_scores_dict = dict()
 lda_scores_dict = dict()
 
 
-def preprocess_data(data):
+def preprocess_data(data, gold_standard_data):
     # Dict to store preprocessed data
     preprocessed_data = dict()
 
@@ -44,10 +44,13 @@ def preprocess_data(data):
     word_order_dict = dict()
     count = 0
 
-    for line in data:
+    for line, gs_line in zip(data, gold_standard_data):
         # Changed from unicode to string
         normal_words = line["content"].encode('ascii', 'ignore')
-        gold_standard = line["contentSimp"].encode('ascii', 'ignore').split()
+        # gold_standard = line["contentSimp"].encode('ascii', 'ignore').split()
+        if gs_line == "\n":
+            continue
+        gold_standard = gs_line.split()
 
         # Used word tokenizer to tokenize the words
         tokens = word_tokenize(normal_words)
@@ -74,7 +77,7 @@ def preprocess_data(data):
     return preprocessed_data
 
 
-def perform_sumy_summarization(data):
+def perform_sumy_summarization(data, gold_standard_data):
     stemmer = Stemmer(LANGUAGE)
 
     summarizers = [LsaSummarizer(stemmer), TextRankSummarizer(stemmer), LexRankSummarizer(stemmer)]
@@ -82,11 +85,13 @@ def perform_sumy_summarization(data):
 
     # print "SUMY Scores: "
     # Read each sentence from 'data' and create a summary of it
-    for line in data:
+    for line, gs_line in zip(data, gold_standard_data):
         # Only consider the content part of the text. Changed it from unicode to normal string
         # summarized_text = line["content"].encode('ascii', 'ignore')
         summarized_text = line["content"]
-        gold_standard = line["contentSimp"]
+        if gs_line == "\n":
+            continue
+        gold_standard = gs_line
 
         # Read line by line instead of reading the entire file
         parser = PlaintextParser.from_string(summarized_text, Tokenizer(LANGUAGE))
@@ -120,11 +125,14 @@ def perform_sumy_summarization(data):
             idx += 1
 
 
-def perform_mallet_summarization(data, mallet_data):
+def perform_mallet_summarization(data, mallet_data, gold_standard_data):
     # Read each line from data and sentence from 'mallet_data' and create a summary of it
-    for line, sentence in zip(data, mallet_data):
-        # Only consider the content_simp part of the text. Changed it from unicode to normal string
-        gold_standard = line["contentSimp"].encode('ascii', 'ignore')
+    for line, sentence, gs_line in zip(data, mallet_data, gold_standard_data):
+        # Use the hand annotated gold standard. Ignore blank lines
+        if gs_line == "\n":
+            continue
+        gold_standard = gs_line
+        # gold_standard = line["contentSimp"].encode('ascii', 'ignore')
 
         # Store the scores in a dictionary
         # output_scores[line["index"]] = []
@@ -143,7 +151,6 @@ def perform_mallet_summarization(data, mallet_data):
         output_scores[int(line["index"])].append({"mallet_rouge_s":
                                                               calculate_rouge_s_score(line["index"], gold_standard,
                                                                                       str(sentence), 2)})
-                # print '*' * 70
 
 # Method to print the top words from LDA
 def print_top_words(model, feature_names, n_top_words, word_order_dict):
@@ -295,8 +302,11 @@ if __name__ == '__main__':
     vectorizer = TfidfVectorizer(ngram_range=(1, 1))              # Creates vectors of each word
     # vectorizer = CountVectorizer()
 
+    with open('gold_standard.txt') as f:
+        gold_standard_data = f.readlines()
+
     # Run SUMY and note the output
-    perform_sumy_summarization(data)
+    perform_sumy_summarization(data, gold_standard_data)
 
     with open('mallet_data.txt') as infile, open('mallet_output.txt', 'w') as outfile:
         for line in infile:
@@ -307,7 +317,7 @@ if __name__ == '__main__':
     with open('mallet_output.txt') as f:
         mallet_data = f.readlines()
 
-    perform_mallet_summarization(data, mallet_data)
+    perform_mallet_summarization(data, mallet_data, gold_standard_data)
 
     # Used for LDA. Play around with n_topics and max_iter
     lda = LatentDirichletAllocation(n_topics=1, max_iter=10, learning_method='online', learning_offset=50.,
@@ -332,9 +342,9 @@ if __name__ == '__main__':
     train_data = data[0:int(len(data)*0.8)]
     test_data = data[int(len(data)*0.8):]
 
-    train_data = preprocess_data(train_data)
-    test_data = preprocess_data(test_data)
-    processed_data = preprocess_data(data)
+    # train_data = preprocess_data(train_data, gold_standard_data)
+    # test_data = preprocess_data(test_data, gold_standard_data)
+    processed_data = preprocess_data(data, gold_standard_data)
 
     # print "LDA Values:"
     for sent in processed_data:
