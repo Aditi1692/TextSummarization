@@ -127,7 +127,7 @@ def perform_mallet_summarization(data, mallet_data):
         gold_standard = line["contentSimp"].encode('ascii', 'ignore')
 
         # Store the scores in a dictionary
-        output_scores[line["index"]] = []
+        # output_scores[line["index"]] = []
 
         # Store output in a dictionary in the form of a key-value pair
         # Example -->  1: 'with the exception of the elderly and the youth'
@@ -320,10 +320,12 @@ if __name__ == '__main__':
     write_metrics_output.write('<html><head><title>Metrics Output</title><style>td, th { padding:10px 5px; }</style></head> <body>')
     write_metrics_output.write('<table align="center" border="1" style="font-family:Arial, sans-serif;">')
     write_metrics_output.write('<tr style="padding:5px 5px;"><th rowspan="2">Sentence Index<br></th><th rowspan="2">Metric<br></th>')
+    write_metrics_output.write('<th colspan="3">Mallet</th>')
     write_metrics_output.write('<th colspan="3">SUMY LexRank</th>')
     write_metrics_output.write('<th colspan="3">LDA</th></tr>')
 
     write_metrics_output.write('<tr align="center"><td><b>Precision</b></td><td><b>Recall</b></td><td><b>F1 Score</b></td>')
+    write_metrics_output.write('<td><b>Precision</b></td><td><b>Recall</b></td><td><b>F1 Score</b></td>')
     write_metrics_output.write('<td><b>Precision</b></td><td><b>Recall</b></td><td><b>F1 Score</b></td></tr>')
 
     # Create train and test data split - 80% train and 20% test data
@@ -430,40 +432,52 @@ if __name__ == '__main__':
     #         write_output.write('<tr><th>' + str(sent) + '</th><td>' +
     #                        print_top_words(lda, tf_feature_names, 100, test_data[sent]["words_dict"]) + '</td></tr>')
 
-    # print output_scores[7][4]
+    # print output_scores[51]
     for score in output_scores:
         # print "Score is: ", score
-        if not output_scores[score]:
+        if len(output_scores[score]) != 12:
             continue
 
-        write_metrics_output.write('<tr align="center"> <td rowspan="4">' + str(score) + '</td><td>Rouge Unigrams</td><td>' +
-                                   str(output_scores[score][0]["sumy_rouge_unigrams"][0]) +
+        write_metrics_output.write('<tr align="center"> <td rowspan="4">' + str(score) + '</td><td>Rouge Unigrams' +
+                                   '</td><td>' + str(output_scores[score][4]["mallet_rouge_unigrams"][0]) +
+                                   '</td><td>' + str(output_scores[score][4]["mallet_rouge_unigrams"][1]) +
+                                   '</td><td>' + str(output_scores[score][4]["mallet_rouge_unigrams"][2]) +
+                                   '</td><td>' + str(output_scores[score][0]["sumy_rouge_unigrams"][0]) +
                                    '</td><td>' + str(output_scores[score][0]["sumy_rouge_unigrams"][1]) +
                                    '</td><td>' + str(output_scores[score][0]["sumy_rouge_unigrams"][2]) +
-                                   '</td><td>' + str(output_scores[score][4]['lda_rouge_unigrams'][0]) +
-                                   '</td><td>' + str(output_scores[score][4]['lda_rouge_unigrams'][1]) +
-                                   '</td><td>' + str(output_scores[score][4]['lda_rouge_unigrams'][2]) + '</td></tr>')
-        write_metrics_output.write('<tr align="center"><td>Rouge Bigrams</td><td>' +
-                                   str(output_scores[score][1]["sumy_rouge_bigrams"][0]) +
+                                   '</td><td>' + str(output_scores[score][8]['lda_rouge_unigrams'][0]) +
+                                   '</td><td>' + str(output_scores[score][8]['lda_rouge_unigrams'][1]) +
+                                   '</td><td>' + str(output_scores[score][8]['lda_rouge_unigrams'][2]) + '</td></tr>')
+        write_metrics_output.write('<tr align="center"><td>Rouge Bigrams' +
+                                   '</td><td>' + str(output_scores[score][5]["mallet_rouge_bigrams"][0]) +
+                                   '</td><td>' + str(output_scores[score][5]["mallet_rouge_bigrams"][1]) +
+                                   '</td><td>' + str(output_scores[score][5]["mallet_rouge_bigrams"][2]) +
+                                   '</td><td>' + str(output_scores[score][1]["sumy_rouge_bigrams"][0]) +
                                    '</td><td>' + str(output_scores[score][1]["sumy_rouge_bigrams"][1]) +
                                    '</td><td>' + str(output_scores[score][1]["sumy_rouge_bigrams"][2]) +
-                                   '</td><td>' + str(output_scores[score][5]['lda_rouge_bigrams'][0]) +
-                                   '</td><td>' + str(output_scores[score][5]['lda_rouge_bigrams'][1]) +
-                                   '</td><td>' + str(output_scores[score][5]['lda_rouge_bigrams'][2]) + '</td></tr>')
-        """write_metrics_output.write('<tr align="center"><td>Rouge L</td><td>' +
-                                   str(output_scores[score][2]["sumy_rouge_l"][0]) +
+                                   '</td><td>' + str(output_scores[score][9]['lda_rouge_bigrams'][0]) +
+                                   '</td><td>' + str(output_scores[score][9]['lda_rouge_bigrams'][1]) +
+                                   '</td><td>' + str(output_scores[score][9]['lda_rouge_bigrams'][2]) + '</td></tr>')
+        write_metrics_output.write('<tr align="center"><td>Rouge L' +
+                                   '</td><td>' + str(output_scores[score][6]["mallet_rouge_l"][0]) +
+                                   '</td><td>' + str(output_scores[score][6]["mallet_rouge_l"][1]) +
+                                   '</td><td>' + str(output_scores[score][6]["mallet_rouge_l"][2]) +
+                                   '</td><td>' + str(output_scores[score][2]["sumy_rouge_l"][0]) +
                                    '</td><td>' + str(output_scores[score][2]["sumy_rouge_l"][1]) +
                                    '</td><td>' + str(output_scores[score][2]["sumy_rouge_l"][2]) +
-                                   '</td><td>' + str(output_scores[score][6]['lda_rouge_l'][0]) +
-                                   '</td><td>' + str(output_scores[score][6]['lda_rouge_l'][1]) +
-                                   '</td><td>' + str(output_scores[score][6]['lda_rouge_l'][2]) + '</td></tr>')
-        write_metrics_output.write('<tr align="center"><td>Rouge S</td><td>' +
-                                   str(output_scores[score][3]["sumy_rouge_s"][0]) +
+                                   '</td><td>' + str(output_scores[score][10]['lda_rouge_l'][0]) +
+                                   '</td><td>' + str(output_scores[score][10]['lda_rouge_l'][1]) +
+                                   '</td><td>' + str(output_scores[score][10]['lda_rouge_l'][2]) + '</td></tr>')
+        write_metrics_output.write('<tr align="center"><td>Rouge S' +
+                                   '</td><td>' + str(output_scores[score][7]["mallet_rouge_s"][0]) +
+                                   '</td><td>' + str(output_scores[score][7]["mallet_rouge_s"][1]) +
+                                   '</td><td>' + str(output_scores[score][7]["mallet_rouge_s"][2]) +
+                                   '</td><td>' + str(output_scores[score][3]["sumy_rouge_s"][0]) +
                                    '</td><td>' + str(output_scores[score][3]["sumy_rouge_s"][1]) +
                                    '</td><td>' + str(output_scores[score][3]["sumy_rouge_s"][2]) +
-                                   '</td><td>' + str(output_scores[score][7]['lda_rouge_s'][0]) +
-                                   '</td><td>' + str(output_scores[score][7]['lda_rouge_s'][1]) +
-                                   '</td><td>' + str(output_scores[score][7]['lda_rouge_s'][2]) + '</td></tr>')"""
+                                   '</td><td>' + str(output_scores[score][11]['lda_rouge_s'][0]) +
+                                   '</td><td>' + str(output_scores[score][11]['lda_rouge_s'][1]) +
+                                   '</td><td>' + str(output_scores[score][11]['lda_rouge_s'][2]) + '</td></tr>')
 
     write_output.write('</table></body></html>')
     write_output.close()
