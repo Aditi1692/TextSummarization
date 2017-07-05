@@ -1,0 +1,2895 @@
+(ROOT
+  (S
+    (NP (DT The) (NN health) (NN care) (NN system))
+    (VP (MD should)
+      (VP (VB finance)
+        (NP (JJR more) (NN money))
+        (NP
+          (NP (DT the) (NNS people))
+          (SBAR
+            (WHNP (WP who))
+            (S
+              (VP
+                (VP (VBP are)
+                  (ADJP (RBR less) (JJ healthy)
+                    (CC and)
+                    (JJ ill)))
+                (CC or)
+                (VP (VBP have)
+                  (NP (DT some) (NN sort))
+                  (UCP
+                    (PP (IN of)
+                      (NP (NN disease)))
+                    (CC and)
+                    (RB not)
+                    (ADJP (RB as) (JJ much)
+                      (PP (TO to)
+                        (NP
+                          (NP (DT the) (NNS people))
+                          (SBAR
+                            (WHNP (WP who))
+                            (S
+                              (VP (VBP are)
+                                (ADVP (RB regularly))
+                                (ADJP (JJ healthy))))))))))))))))))
+
+(ROOT
+  (PP (IN with)
+    (NP
+      (NP (DT the) (NN exception))
+      (PP (IN of)
+        (NP
+          (NP (DT the) (JJ elderly))
+          (CC and)
+          (NP (DT the) (NN youth)))))))
+
+(ROOT
+  (S
+    (NP
+      (NP (DT Every) (NN health) (NN insurance))
+      (PP (IN in)
+        (NP (NNP America))))
+    (VP (MD should)
+      (VP (VB provide)
+        (NP
+          (NP
+            (QP (CD 2) (TO to) (CD 3))
+            (JJ free) (JJ clinical) (NN check) (NNS ups))
+          (PP (IN for)
+            (NP
+              (NP (DT a) (NN family))
+              (PP (IN of)
+                (NP
+                  (NP
+                    (QP (CD 3)
+                      (CC or)
+                      (JJR more)))
+                  (, ,)
+                  (CC and)
+                  (NP
+                    (NP
+                      (QP (CD 1) (TO to) (CD 2)))
+                    (PP (IN for)
+                      (NP (JJ single) (NNS households)))))))))))
+    (. .)))
+
+(ROOT
+  (UCP
+    (VP (VBN medicare/medicaid)
+      (SBAR
+        (S
+          (VP (MD should)
+            (VP (VB be)
+              (NP
+                (NP (JJ equal) (NNS people))
+                (PP (IN of)
+                  (NP (DT all) (NN income)))))))))
+    (CC but)
+    (ADVP (IN at))
+    (ADJP
+      (NP (DT the) (JJ same) (NN time))
+      (JJ affordable))))
+
+(ROOT
+  (S
+    (NP (NNP Insurance) (NNS companies))
+    (VP (MD should)
+      (VP (VB make)
+        (NP (DT the) (NN co-payments))
+        (PP (VBN based)
+          (PP (IN upon)
+            (NP (JJ yearly) (NN household) (NN income))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT This))
+    (VP (MD will)
+      (VP (VB help)
+        (PP (IN with)
+          (NP
+            (NP (NNS people))
+            (VP
+              (ADVP (RB actually))
+              (VBG staying)
+              (NP
+                (NP (JJ current))
+                (PP (IN on)
+                  (NP (PRP$ their) (NN health)))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (NNP Medicare/Medicaid))
+    (VP (MD should)
+      (VP (VB get)
+        (NP (DT a) (`` ``) (JJ flex) (NN card) ('' ''))
+        (PP (IN with)
+          (NP
+            (NP
+              (ADJP (RB so) (JJ much))
+              (NN money))
+            (PP (IN on)
+              (NP (PRP it)))))
+        (SBAR
+          (ADVP (RB yearly))
+          (IN so)
+          (S
+            (NP (DT that))
+            (VP (MD will)
+              (VP (VB be)
+                (ADJP (JJ able)
+                  (S
+                    (VP (TO to)
+                      (VP (VB pay)
+                        (PP (IN for)
+                          (ADVP (IN at) (JJS least)))
+                        (NP (PRP$ their) (NNS prescriptions))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (SBAR
+      (WHADVP (WRB When))
+      (S
+        (NP
+          (NP (JJ prescribed) (NNS drugs))
+          (SBAR
+            (S
+              (NP (DT the) (NN doctor))
+              (VP (MD should)
+                (VP (VB have)
+                  (S
+                    (NP (DT a) (NN bar) (NN code))
+                    (VP (TO to)
+                      (VP (VB scan)
+                        (SBAR (IN so)
+                          (S
+                            (NP (PRP you))
+                            (VP (MD can)
+                              (VP (VB get)
+                                (NP (PRP them))))))))))))))
+        (VP (VBD refilled)
+          (ADVP
+            (ADVP (RBR more) (RB conveniently))
+            (SBAR
+              (WHADVP (WRB when))
+              (S
+                (NP (PRP you))
+                (VP (VBP want)
+                  (S
+                    (VP (TO to)
+                      (VP (VB get)
+                        (NP
+                          (NP (DT the) (NN prescription))
+                          (VP (VBN filled)
+                            (PP (IN at)
+                              (NP (DT the) (NN drug) (NN store))))))))))
+              (. .))))))
+    (NP
+      (NP (DT This) (NN way))
+      (NP (DT the) (NN pharmacist)))
+    (VP (MD can)
+      (VP (VB monitor)
+        (SBAR
+          (SBAR
+            (X
+              (X (WP what))
+              (NP (NNS drugs)))
+            (S
+              (NP (PRP you))
+              (VP (VBP are)
+                (VP (VBG getting)))))
+          (CC and)
+          (SBAR
+            (WHADVP (WRB how) (RB much))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (NNP Physicians))
+    (VP (MD should)
+      (VP (VB evaluate)
+        (CC and)
+        (VB give)
+        (NP (NNS tips))
+        (PP (TO to)
+          (NP
+            (NP (NNS people))
+            (SBAR
+              (WHNP (WP who))
+              (S
+                (VP (VBP say)
+                  (SBAR
+                    (S
+                      (NP (PRP they))
+                      (VP (VBP are)
+                        (VP (VBG having)
+                          (NP
+                            (NP (NNS problems))
+                            (PP (IN with)
+                              (NP (JJ certain) (NNS issues)))))))))))))
+        (PP (IN before)
+          (S
+            (ADVP (RB just))
+            (VP
+              (ADVP (RB automatically))
+              (VBG diagnose)
+              (NP (PRP them))
+              (PP (IN with)
+                (NP
+                  (NP (DT some) (NN disease))
+                  (SBAR
+                    (WHNP (WDT that))
+                    (S
+                      (VP (VBZ causes)
+                        (S
+                          (NP (PRP them))
+                          (VP (TO to)
+                            (VP (VB have)
+                              (S
+                                (VP (TO to)
+                                  (VP (VB take)
+                                    (NP (NN medicine))
+                                    (SBAR (IN that)
+                                      (S
+                                        (NP (PRP they))
+                                        (VP (MD can)
+                                          (VP
+                                            (VP (VB become)
+                                              (ADJP (JJ dependent)
+                                                (PP (IN on))))
+                                            (CC and)
+                                            (VP (VB start)
+                                              (PP (TO to)
+                                                (NP (NN abuse))))))))))))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NNS People))
+      (PP (IN with)
+        (NP (JJ chronic) (NNS illnesses))))
+    (VP (MD should)
+      (VP (VB have)
+        (NP (NNS specialists))
+        (PP (IN with)
+          (NP (JJ reasonable) (NNS prices)))
+        (SBAR (IN so)
+          (S
+            (NP (NNS physicians))
+            (VP (MD can)
+              (VP (VB monitor)
+                (NP (PRP$ their) (NN health))
+                (ADVP (RBR more) (RB efficiently))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT All) (NNS doctors)
+      (CC and)
+      (NNS physicians))
+    (VP (MD should)
+      (VP (VB have)
+        (NP
+          (NP (DT a) (JJ small) (NN pharmacist))
+          (SBAR
+            (WHNP (WDT that))
+            (S
+              (VP (MD will)
+                (VP (VB be)
+                  (ADJP (JJ convenient)
+                    (PP (IN for)
+                      (NP (DT the)
+                        (ADJP (JJ patient)
+                          (S
+                            (VP (TO to)
+                              (VP (VB get)
+                                (NP (PRP$ their) (NNS prescriptions))))))
+                        (NN refilled)))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (NNP Physicians))
+      (VP (VBP need)
+        (S
+          (VP (TO to)
+            (VP (VB go)
+              (PP (TO to)
+                (NP
+                  (NP (NNS seminars))
+                  (CC and)
+                  (NP (JJ small) (NNS courses))))
+              (S
+                (VP (TO to)
+                  (VP (VB stay)
+                    (NP
+                      (NP (JJ current))
+                      (PP (IN on)
+                        (NP (JJ new) (NNS things))))
+                    (PP (IN in)
+                      (NP (DT the) (NN health) (NN world)))))))))))
+    (CC and)
+    (S
+      (NP
+        (NP (WP what) (NN type))
+        (PP (IN of)
+          (NP (NNS diseases))))
+      (VP (VBP have)
+        (VP (VBN been)
+          (VP (VBN detected)
+            (ADVP (RB lately))
+            (SBAR (RB so) (IN that)
+              (S
+                (NP (JJR less) (NN misdiagnosing))
+                (VP (VBZ occurs))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (NNP Emergency) (NN room) (NNS visits))
+      (VP (MD should)
+        (VP (VB be)
+          (ADJP (RBR less) (JJ expensive))))
+      (. .))
+    (CC And)
+    (S
+      (NP (NNS pharmacies))
+      (VP (MD should)
+        (VP (VB have)
+          (S
+            (NP
+              (NP (DT a)
+                (ADJP (JJ small)
+                  (PRT (RP in)
+                    (CC and)
+                    (RP out)))
+                (NNS clinics))
+              (PP (IN with)
+                (NP
+                  (NP (JJ reasonable) (NNS prices))
+                  (PP (IN for)
+                    (NP (NNS emergencies))))))
+            (ADJP (RBR less) (JJ severe)
+              (PP (IN than)
+                (NP
+                  (NP (NN hospital) (NN attention))
+                  (PP (IN for)
+                    (NP (NN anyone)))))))
+          (PP (IN with)
+            (CC or)
+            (IN without)
+            (NP (NN insurance))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (NNP Nursing) (NNS homes))
+    (VP (MD should)
+      (VP (VB be)
+        (VP (VBN covered)
+          (PP (IN by)
+            (NP (NNP Medicare)))
+          (SBAR (IN since)
+            (S
+              (NP (DT some) (JJ elderly))
+              (VP (VBP do) (RB not)
+                (VP (VB have)
+                  (NP
+                    (NP (NN family))
+                    (SBAR
+                      (WHNP (WDT that))
+                      (S
+                        (VP
+                          (VP (MD can)
+                            (VP (VB afford)
+                              (NP (PRP it))))
+                          (CC but)
+                          (VP (VBP need)
+                            (NP (PRP$ their) (NN loved) (NNS ones))
+                            (S
+                              (VP (TO to)
+                                (VP (VB be)
+                                  (VP (VBN monitored)))))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (DT The) (NN government))
+      (VP (MD could)
+        (VP (VB pull)
+          (PRT (RP out))
+          (NP
+            (NP (DT all) (NN money))
+            (VP (VBG going)
+              (PP (IN into)
+                (NP (DT the) (NN healthcare) (NN system))))))))
+    (CC and)
+    (S
+      (NP (DT the) (NN country))
+      (VP (MD would)
+        (ADVP (RB just))
+        (VP (VB have)
+          (S
+            (VP (TO to)
+              (VP (VB build)
+                (NP (PRP itself))
+                (ADVP (RB back) (RB up))
+                (PP (IN by)
+                  (NP
+                    (NP (NNS people))
+                    (VP (VBG helping)
+                      (NP (DT each) (JJ other))
+                      (PRT (RP out)))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NNS People))
+      (PP (IN with)
+        (NP (JJ chronic) (NNS illnesses))))
+    (VP (MD should)
+      (VP (VB seek)
+        (NP (DT the) (JJ medical) (NN attention))
+        (SBAR (IN that)
+          (S
+            (NP (PRP they))
+            (VP (VBP need)
+              (ADVP (DT no) (NN matter))
+              (NP (DT the) (JJ financial) (NN situation)))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT All) (NNS drugs))
+    (VP (MD should)
+      (VP (VB have)
+        (NP
+          (NP (DT a) (JJ generic) (NN brand))
+          (VP (VBN offered)
+            (SBAR (IN so)
+              (S
+                (NP (NNS people))
+                (VP (MD wo) (RB n't)
+                  (VP (VB have)
+                    (S
+                      (VP (TO to)
+                        (VP (VB pay)
+                          (ADVP (RB so) (RB much))
+                          (PP (IN for)
+                            (NP (DT the) (NNS medicines))))))
+                    (SBAR (IN that)
+                      (S
+                        (NP (PRP they))
+                        (VP (VBP need))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (JJ Birth) (NN control))
+      (VP (MD should)
+        (VP (VB be)
+          (ADJP (JJ free))
+          (SBAR (RB so) (IN that)
+            (S
+              (NP (NNS pregnancies))
+              (VP (MD will)
+                (VP (VB decrease))))))))
+    (CC and)
+    (S
+      (NP (NNP Medicaid))
+      (VP (MD wo) (RB n't)
+        (VP (VB have)
+          (S
+            (VP (TO to)
+              (VP (VB provide)
+                (PP (IN for)
+                  (NP
+                    (NP (DT that) (NN person))
+                    (CC and)
+                    (NP (DT the) (JJ unborn) (NN child))))
+                (ADVP (RB as) (RB well))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (VP (VBG Seeing)
+        (NP
+          (NP (DT a) (NN dietician))
+          (CC or)
+          (NP (DT a) (NN nutritionist)))))
+    (VP (MD should)
+      (VP (VB be)
+        (ADJP (JJ free)
+          (ADVP (IN at) (JJS least))
+          (NP (RB once) (DT a) (NN year)))
+        (SBAR (IN so)
+          (S
+            (S
+              (ADVP (RB maybe))
+              (NP (DT that))
+              (VP (MD will)
+                (VP (VB cut)
+                  (PRT (RP back))
+                  (PP (IN on)
+                    (S
+                      (VP (VBG visiting)
+                        (NP (DT the) (JJ primary) (NN doctor))
+                        (ADVP
+                          (ADVP (RB so) (RB much))
+                          (SBAR (IN because)
+                            (S
+                              (NP (JJ natural) (NN health))
+                              (VP (VBZ is)
+                                (ADJP (JJ sufficient))))))))))))
+            (CC and)
+            (S
+              (NP (PRP they))
+              (VP (VBP are)
+                (ADJP (RBR less) (JJ likely)
+                  (S
+                    (VP (TO to)
+                      (VP (VB get)
+                        (ADJP (JJ ill))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (EX There))
+    (VP (MD should)
+      (VP (VB be)
+        (NP (DT a) (JJ universal) (NN healthcare) (NN system) (. .) ('' Insurance))
+        (SBAR
+          (S
+            (NP (NNS companies))
+            (VP (VBP are)
+              (NP (DT a) (JJ big) (NN problem))
+              (NP (NN today)))))))))
+
+(ROOT
+  (S
+    (NP (NNP Physicians) (NN misdiagnosing) (NNS patients))
+    (VP (VBZ is)
+      (VP (VBG happening)
+        (SBAR
+          (S
+            (S
+              (FRAG
+                (ADVP (RBR more) (RB often))
+                (. .))
+              (NP (DT The) (NNS physicians))
+              (VP (MD should)
+                (VP (VB be)
+                  (VP (VBN evaluated)
+                    (ADVP (RB regulary))))))
+            (IN so)
+            (S
+              (NP (PRP it))
+              (VP (VBZ reduces)
+                (NP (DT the) (NN risk))))))))))
+
+(ROOT
+  (S
+    (NP (NNP Women) (NNS clinics))
+    (VP (MD should)
+      (VP (VB be)
+        (ADJP
+          (ADJP (RB readily) (JJ available))
+          (CC and)
+          (ADJP (RBR more) (JJ awareness)
+            (S
+              (VP (TO to)
+                (VP (VB prevent)
+                  (NP (NNS diseases/cancers)))))))))))
+
+(ROOT
+  (S
+    (S
+      (S
+        (VP (VBG Being)
+          (ADJP (JJ able)
+            (S
+              (VP (TO to)
+                (VP (VB visit)
+                  (NP (NNS specialists))
+                  (PP (IN with)
+                    (NP (JJ reasonable) (NNS prices)))))))))
+      (VP (MD will)
+        (ADVP (RB also))
+        (VP (VB help)
+          (PP (IN in)
+            (NP (DT the) (JJ long) (NN run))))))
+    (: --)
+    (S
+      (NP (NN illness))
+      (VP
+        (VP (MD could)
+          (VP (VB improve)))
+        (CC or)
+        (VP (VBD caught)
+          (ADVP (RB early))
+          (PP (IN before)
+            (NP (NNS worsens))))))
+    (, ,)
+    (CC and)
+    (S
+      (NP
+        (NP (JJR less) (NNS trips))
+        (PP (TO to)
+          (NP
+            (NP (DT a) (NN physician))
+            (SBAR
+              (WHNP (WP who))
+              (S
+                (VP (MD could)
+                  (ADVP (RB possibly))
+                  (RB not)
+                  (VP (VB know)
+                    (NP (WP what)))))))))
+      (VP (VBZ is)
+        (ADJP (JJ wrong))))))
+
+(ROOT
+  (S
+    (NP (NNP Physicians))
+    (VP (MD should)
+      (VP (VB pay)
+        (NP (NN attention))
+        (NP
+          (NP
+            (ADJP (JJR more)
+              (PP (TO to)
+                (S
+                  (VP
+                    (VP (VBG figuring)
+                      (PRT (RP out))
+                      (NP
+                        (NP (DT the) (NN cause))
+                        (PP (IN of)
+                          (NP (DT a) (JJ particular) (NN problem)))))
+                    (CONJP (RB rather) (IN than))
+                    (VP (VBG prescribing)
+                      (NP (NNS drugs))
+                      (S
+                        (VP (TO to)
+                          (VP (VB alleviate)))))))))
+            (NNS symptoms))
+          (: --)
+          (NP
+            (NP (JJR more) (NN money))
+            (VP (VBN gone)
+              (PP (TO to)
+                (NP (NNS drugs)))))
+          (CC and)
+          (NP
+            (NP (NN illness))
+            (VP (RB not) (VBN cured))))))))
+
+(ROOT
+  (S
+    (NP (PRP I))
+    (VP (VBP think)
+      (SBAR (IN that)
+        (S
+          (NP
+            (NP (NNS people))
+            (SBAR
+              (WHNP (WP who))
+              (S
+                (VP (VBP have)
+                  (NP (JJ mental) (NNS illnesses))))))
+          (VP (MD should)
+            (VP (VB be)
+              (ADJP (JJ able)
+                (S
+                  (VP (TO to)
+                    (VP (VB see)
+                      (NP (DT a) (NN doctor)
+                        (CC or)
+                        (NN specialist))
+                      (PP (IN at)
+                        (NP (DT a) (JJ reasonable) (NN cost))))))))))))))
+
+(ROOT
+  (FRAG
+    (ADJP (JJ True))
+    (, ,)
+    (SBAR (IN because)
+      (S
+        (ADVP (RB sometimes))
+        (NP
+          (NP (NN money))
+          (PP (IN for)
+            (NP (NNS drugs))))
+        (VP (MD could)
+          (VP (VB result)
+            (PP (IN in)
+              (NP
+                (NP (NN substance) (NN abuse))
+                (PP (IN for)
+                  (NP (JJ certain) (NNS cases)))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (INTJ (UH Exactly) (. .))
+    (VP (VB Saving)
+      (NP (DT both) (NN time)
+        (CC and)
+        (NN money))
+      (PP (IN without)
+        (S
+          (VP (VBG wasting)
+            (NP (DT the) (NNS resources)))))
+      (SBAR (IN that)
+        (S
+          (NP (DT the) (NN government))
+          (VP (VBZ has)
+            (VP (VBN supplied))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (PRP I))
+    (VP (VBP agree)
+      (SBAR (IN because)
+        (S
+          (NP (PRP it))
+          (VP (VBZ is)
+            (ADVP (RB ultimately))
+            (ADVP (RB up)
+              (PP (TO to)
+                (NP (DT the) (NN woman))))
+            (S
+              (VP (TO to)
+                (VP (VB decide)
+                  (PP (IN for)
+                    (NP (PRP herself)))
+                  (SBAR (IN whether)
+                    (PRN (CC or)
+                      (ADJP (RB not)
+                        (S
+                          (VP (TO to)
+                            (VP (VB have)
+                              (NP
+                                (NP (DT the) (NN baby))
+                                (CC and)
+                                (NP (DT the) (NNS risks))))))))
+                    (S
+                      (NP (DT that))
+                      (VP (VBP go)
+                        (PRT (RP along))
+                        (PP (IN with)
+                          (NP (PRP it)))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (VP (VBG Seeing)
+        (NP (DT a) (NN dietician/nutritionist))))
+    (VP (MD would)
+      (ADVP (RB also))
+      (VP (VB give)
+        (NP (DT the) (NN person))
+        (NP (DT a) (JJR better) (NN picture))
+        (PP (IN as)
+          (PP (TO to)
+            (SBAR
+              (SBAR
+                (WHADVP (WRB where))
+                (S
+                  (NP (PRP$ their) (NN health))
+                  (VP (VBZ is))))
+              (, ,)
+              (CC and)
+              (SBAR
+                (WHADVP (WRB how))
+                (S
+                  (VP (TO to)
+                    (VP (VB improve)
+                      (NP (PRP it)))))))))
+        (, ,)
+        (S
+          (VP (TO to)
+            (VP (VB avoid)
+              (S
+                (VP (VBG going)
+                  (PP (TO to)
+                    (NP
+                      (NP (DT the) (NN doctor))
+                      (ADVP (IN at) (DT all)))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (PRP I))
+      (VP (VBP agree)))
+    (, ,)
+    (CC but)
+    (S
+      (NP (PRP I))
+      (VP
+        (VP (VBP feel)
+          (NP
+            (NP (DT that))
+            (PP (IN for)
+              (NP (DT those) (JJ unemployed)))))
+        (CC or)
+        (VP (VBP have)
+          (NP
+            (NP (DT no) (NN intention))
+            (PP (IN of)
+              (S
+                (VP (VBG getting)
+                  (SBAR
+                    (S
+                      (NP (DT a) (NN job))
+                      (VP (MD may)
+                        (VP (VB have)
+                          (NP
+                            (NP (DT an) (NN issue))
+                            (VP (VBG paying)
+                              (NP (PRP it)))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (PRP I))
+      (VP (VBP think)
+        (SBAR (IN that)
+          (S
+            (NP (NN emergency) (NN room) (NNS visits))
+            (VP (MD should)
+              (VP (VB be)
+                (ADJP (JJ free))
+                (, ,)
+                (SBAR (IN if)
+                  (S
+                    (NP (DT the) (NN emergency))
+                    (VP (VBZ is)
+                      (NP
+                        (NP (CD one))
+                        (PP (IN of)
+                          (NP (JJ actual) (NN concern))))))))))))
+      (. .))
+    (RB Not)
+    (S
+      (NP (DT an) (`` ``) (NN emergency) ('' ''))
+      (VP (VBG involving)
+        (NP
+          (NP
+            (NP (DT a) (NN headache)
+              (CC or)
+              (NN stomach) (NNS problems))
+            (SBAR
+              (WHNP (WDT that))
+              (S
+                (VP (MD could)
+                  (VP (VB be)
+                    (VP (VBN solved)
+                      (PP (IN with)
+                        (PP (IN over)
+                          (NP (DT the) (JJ counter) (NN medication))))))))))
+          (, ,)
+          (CONJP (CC but)
+            (RB rather))
+          (NP
+            (NP (NNS emergencies))
+            (PP (VBG involving)
+              (NP
+                (NP (JJ deep) (NNS cuts))
+                (CC or)
+                (NP (JJ severe) (NNS infections))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (PRP I))
+      (VP (VBP agree) (, ,)
+        (PP (IN because)
+          (S
+            (VP (VBG doing)
+              (SBAR (IN so)
+                (S
+                  (VP (MD would)
+                    (VP (VB make)
+                      (NP (DT the) (NN system))
+                      (ADJP
+                        (ADJP (RBR more) (JJ efficient)
+                          (PP (IN without)
+                            (S
+                              (VP (VBG sending)
+                                (NP (NNS people))))))
+                        (SBAR
+                          (ADVP (RB away))
+                          (WHNP (WP who))
+                          (SQ
+                            (VP
+                              (ADVP (RB actually))
+                              (VBP need)
+                              (NP (PRP it))))
+                          (. .))))))))))))
+    (RB Also) (, ,)
+    (S
+      (NP (PRP you))
+      (VP (MD could)
+        (VP (VB get)
+          (NP (DT a) (JJR better) (NN tab))
+          (PP (IN on)
+            (SBAR
+              (WHNP
+                (WHNP (WRB how) (RB much))
+                (PP (IN of)
+                  (NP (DT the) (NN substance))))
+              (S
+                (VP (VBZ is)
+                  (VP (VBG being)
+                    (VP (VBN used))))))))))
+    (, ,)
+    (CC and)
+    (S
+      (NP (DT the) (NN doctor))
+      (VP (MD can)
+        (VP (VB tell)
+          (SBAR (IN if)
+            (S
+              (NP (DT the) (NN patient))
+              (VP (VBZ is)
+                (VP (VBG abusing)
+                  (NP (DT the) (NN substance)))))
+            (CC or)
+            (RB not)))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (PRP I))
+      (VP (VBP think)
+        (SBAR (IN that)
+          (S
+            (NP (DT every) (NN hospital)
+              (CC or)
+              (NN clinic))
+            (VP (MD should)
+              (VP (VB offer)
+                (NP (NN health) (NN care))
+                (SBAR (IN because)
+                  (S
+                    (NP (NNS people))
+                    (VP (MD ca) (RB n't)
+                      (ADVP (RB always))
+                      (VP (VB get)
+                        (PP (TO to)
+                          (NP
+                            (NP (DT the) (JJ specific) (NN provider))
+                            (SBAR
+                              (S
+                                (NP (PRP they))
+                                (VP (VBP have)
+                                  (VP (VBN listed)
+                                    (PP (IN in)
+                                      (NP (PRP$ their) (NN insurance))))))))))))))))))
+      (. .))
+    (NP (PRP They))
+    (VP (MD could)
+      (ADVP (RB also))
+      (VP
+        (VP (VB need)
+          (NP (JJ serious) (JJ medical) (NN attention)))
+        (CC and)
+        (RB not)
+        (VP (VB be)
+          (ADJP (JJ able)
+            (S
+              (VP (TO to)
+                (VP (VB get)
+                  (NP (PRP it))
+                  (PP (IN at)
+                    (NP (DT an) (JJ affordable) (NN price))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (ADVP (RB Also))
+    (, ,)
+    (NP (DT the) (NN mentally))
+    (VP (VBD ill/disabled))))
+
+(ROOT
+  (S
+    (ADVP (RB Maybe))
+    (NP (PRP they))
+    (VP (MD could)
+      (ADVP (RB also))
+      (VP (VB get)
+        (NP (NNS coupons)
+          (CC or)
+          (NNS cards))
+        (S
+          (VP (VBG allowing)
+            (S
+              (NP (PRP them))
+              (VP (TO to)
+                (VP
+                  (VP (VB get)
+                    (NP (DT a) (JJ discounted) (NN visit))
+                    (PP (TO to)
+                      (NP (DT the) (NN doctor))))
+                  (, ,)
+                  (CC or)
+                  (VP (VB see)
+                    (NP (DT a) (NN specialist))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (ADVP (JJ True))
+    (, ,)
+    (SBAR (RB so)
+      (S
+        (NP (PRP they))
+        (VP (MD wo) (RB n't)
+          (VP (VB be)
+            (VP (VBG wasting)
+              (NP (NN money))
+              (PP (IN on)
+                (NP (JJ false) (NNS diagnoses))))))
+        (. .)))
+    (NP (DT This))
+    (VP (MD would)
+      (ADVP (RB also))
+      (VP (VB make)
+        (S
+          (NP (DT the) (NN system))
+          (ADJP (RBR more) (JJ reliable)
+            (PP (TO to)
+              (NP (DT the) (NN public)))))
+        (, ,)
+        (S
+          (VP (VBG knowing)
+            (SBAR (IN that)
+              (S
+                (NP (NNS doctors))
+                (VP (VBP have)
+                  (S
+                    (VP (TO to)
+                      (VP (VB stay)
+                        (NP (JJ current))
+                        (PP (IN with)
+                          (NP
+                            (NP (DT the) (NNS diseases))
+                            (CC and)
+                            (NP (PRP$ their) (NNS symptoms))))))))))))))
+    (. .)))
+
+
+(ROOT
+  (S
+    (NP (FW i))
+    (VP (VBP agree)
+      (SBAR (IN because)
+        (S
+          (NP (DT the) (NNS women))
+          (VP (VBZ needs)
+            (S
+              (VP (TO to)
+                (VP (VB be)
+                  (VP (VBN treated)
+                    (ADVP (RB fairly))
+                    (PP (IN as)
+                      (NP
+                        (NP (NNS men))
+                        (CC and)
+                        (NP
+                          (NP (JJ other) (NNS aspects))
+                          (PP (IN like)
+                            (NP (NN age) (, ,) (NN gender) (, ,) (NN sexuality) (, ,) (NN education) (, ,) (NN family) (NN background))))
+                        (, ,)
+                        (X (NN etc.))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (PRP I))
+    (VP (VBP think)
+      (SBAR
+        (S
+          (NP (DT the) (JJ generic))
+          (VP (MD should)
+            (VP (VB be)
+              (VP (VB get)
+                (PRT (RP off))
+                (S
+                  (VP (TO to)
+                    (VP (VB let)
+                      (S
+                        (NP (DT the) (JJ main) (NN one))
+                        (VP (VB reduce)
+                          (PP (IN in)
+                            (NP (NN cost))))))))))))))))
+
+(ROOT
+  (S
+    (S
+      (NP (DT This))
+      (VP (MD would)
+        (VP (VB reduce)
+          (NP
+            (NP (DT the) (NN cost))
+            (PP (IN of)
+              (NP (DT the) (JJ prescribed) (NN drug)))))))
+    (RB then)
+    (S
+      (NP (NNS people))
+      (VP (MD would)
+        (VP (VB be)
+          (ADJP (JJ able)
+            (S
+              (VP (TO to)
+                (VP
+                  (VP (VB afford)
+                    (NP (PRP it)))
+                  (CONJP (RB as) (RB well) (IN as))
+                  (VP (VB have)
+                    (NP (DT the) (NN oppurtunity)
+                      (S
+                        (VP (TO to)
+                          (VP
+                            (ADVP (RB actually))
+                            (VB buy)
+                            (NP (DT the) (NN medication))
+                            (SBAR (IN that)
+                              (S
+                                (NP (PRP they))
+                                (VP (VBP need)
+                                  (S
+                                    (VP (TO to)
+                                      (VP (VB take)
+                                        (PP (IN on)
+                                          (NP (DT a) (JJ regular) (NN basis)))))))))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP
+        (NP (JJR More) (NNS clinics))
+        (ADJP (JJ similar) (TO to) (JJ Care-Now)))
+      (VP (MD should)
+        (VP (VB be)
+          (ADJP (JJ open)))))
+    (CC but)
+    (S
+      (NP (PRP they))
+      (VP (MD should)
+        (VP (VB have)
+          (NP (NN family) (NN medicine) (NNS doctors))
+          (SBAR
+            (ADVP (RB there) (RB so))
+            (IN that)
+            (S
+              (NP (NN misdiagnosing))
+              (VP (MD will)
+                (VP (VB be)
+                  (ADJP (RBR less) (JJ likely)
+                    (S
+                      (VP (TO to)
+                        (VP (VB occur))))))))))))
+    (CC and)
+    (S
+      (NP
+        (NP (DT the) (NN prescribing))
+        (PP (IN of)
+          (NP (NNS drugs))))
+      (VP (MD will)
+        (VP (VB be)
+          (ADJP (RBR less) (JJ likely)
+            (S
+              (VP (TO to)
+                (VP (VB happen))))))))))
+
+(ROOT
+  (S
+    (SBAR
+      (SBAR
+        (S
+          (NP (NNP Physicians))
+          (VP (MD should)
+            (VP (VB be)
+              (VP (VBN monitored)
+                (WHPP (IN on)
+                  (WHNP (WP what))))))))
+      (CC and)
+      (SBAR
+        (WHADJP (WRB how) (JJ much))
+        (S
+          (NP (PRP they))
+          (VP (VBP are)
+            (VP (VBG prescribing)
+              (PP (TO to)
+                (NP (PRP$ their) (NNS patients)))
+              (SBAR (IN because)
+                (S
+                  (NP (DT this))
+                  (VP (MD may)
+                    (VP (VB crack)
+                      (PRT (RP down))
+                      (PP (IN on)
+                        (S
+                          (NP (PRP them))
+                          (VP
+                            (VP (VBG getting)
+                              (NP
+                                (NP (JJ certain) (NNS drugs))
+                                (PP (IN for)
+                                  (NP (JJ promotional) (NNS purposes)))))
+                            (CC and)
+                            (VP (VBG receiving)
+                              (NP (NNS things))
+                              (PP (IN from)
+                                (NP (DT the) (NN drug) (NNS companies)))
+                              (SBAR (IN that)
+                                (S
+                                  (NP (PRP they))
+                                  (VP (MD would)
+                                    (ADVP (RB normally))
+                                    (RB not)
+                                    (VP (VB get)
+                                      (SBAR (IN if)
+                                        (S
+                                          (NP (PRP they))
+                                          (VP (VBD were) (RB not)
+                                            (VP (VBG prescribing)
+                                              (NP (DT these) (NNS drugs)))))))))))))))))))))
+        (. .)))
+    (NP (PRP It))
+    (VP (VBZ is)
+      (NP
+        (NP (DT all))
+        (PP (IN about)
+          (NP
+            (NP (DT the) (NN money))
+            (PP (IN in)
+              (NP (DT these) (NNS cases))))))
+      (SBAR (IN so)
+        (S
+          (NP (DT some) (NNS doctors))
+          (ADVP (RB really))
+          (VP (VBP are) (RB not)
+            (VP (VBN considered)
+              (PP (IN with)
+                (NP (PRP$ their) (NNS patients) (NN health))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (NNP Less) (NNS immunizations))
+    (VP (MD might)
+      (VP (VB help)
+        (S
+          (NP (NNS people))
+          (VP (TO to)
+            (ADVP (RB actually))
+            (VP (VB be)
+              (ADJP (JJ able)
+                (S
+                  (VP (TO to)
+                    (VP (VB fight)
+                      (PRT (RP off))
+                      (NP
+                        (NP (DT some))
+                        (PP (IN of)
+                          (NP (DT these) (NNS diseases))))))))
+              (SBAR (IN that)
+                (S
+                  (NP (PRP they))
+                  (VP (VBP are)
+                    (VP (VBG trying)
+                      (S
+                        (VP (TO to)
+                          (VP (VB prevent)
+                            (PP (IN from)
+                              (S
+                                (VP (VBG coming)
+                                  (PRT (RP back))
+                                  (SBAR (IN since)
+                                    (S
+                                      (NP (JJ new) (NNS ones))
+                                      (VP (VBP are)
+                                        (VP (VBN introduced)
+                                          (NP (PDT all) (DT the) (NN time)))))))))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (JJR More) (NNS studies))
+    (VP (MD should)
+      (VP
+        (VP (VB go)
+          (PP (IN into)
+            (S
+              (VP (VBG looking)
+                (PP (IN at)
+                  (NP
+                    (NP (DT the) (NNS patterns)
+                      (CC and)
+                      (NNS trends))
+                    (PP (IN of)
+                      (NP (JJ certain) (NNS outbreaks)))))
+                (ADVP (RB globally))))))
+        (CC and)
+        (VP (VB try)
+          (S
+            (VP (TO to)
+              (VP (VB figure)
+                (PRT (RP out))
+                (NP (DT a) (NN way)
+                  (S
+                    (VP (TO to)
+                      (VP (VB prevent)
+                        (NP (PRP them))
+                        (PP (IN from)
+                          (S
+                            (ADVP (RB continuously))
+                            (VP (VBG spreading))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (NNP HIV/AIDS) (NNS patients))
+      (VP (MD should)
+        (VP
+          (VP (VB get)
+            (NP (NNS coupons))
+            (PP (IN on)
+              (NP (PRP$ their) (NNS medications))))
+          (CC and)
+          (ADVP (RB also))
+          (VP (VB have)
+            (NP (DT an) (JJ affordable) (JJ specialized) (NN doctor)
+              (S
+                (VP (TO to)
+                  (VP (VB visit)
+                    (PP (IN for)
+                      (NP (JJ regular) (NNS check-ups))))))))
+          (. .)
+          (FRAG
+            (ADVP (RB Also))))))
+    (, ,)
+    (NP (PRP they))
+    (VP (MD can)
+      (VP (VB be)
+        (VP (VBN used)
+          (PP (IN for)
+            (NP
+              (NP (DT the) (NN process))
+              (PP (IN of)
+                (S
+                  (VP (VBG trying)
+                    (S
+                      (VP (TO to)
+                        (VP (VB find)
+                          (NP
+                            (NP (DT a) (NN cure))
+                            (PP (IN for)
+                              (NP (DT the) (NN disease)))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (JJR More) (NNS restrictions))
+    (VP (MD should)
+      (VP (VB be)
+        (VP (VBN placed)
+          (PP (IN on)
+            (S
+              (VP (VBG receiving)
+                (NP (NNP Medicaid))
+                (SBAR (RB so) (IN that)
+                  (S
+                    (NP
+                      (NP (NNS people))
+                      (SBAR
+                        (WHNP (WP who))
+                        (S
+                          (VP
+                            (VP (VBP are)
+                              (ADJP (JJ lazy)))
+                            (CC and)
+                            (ADVP (RB really))
+                            (VP
+                              (ADVP (RB just))
+                              (VBP want)
+                              (S
+                                (VP (TO to)
+                                  (VP (VB rely)
+                                    (PP (IN on)
+                                      (NP
+                                        (NP (DT the) (NN government))
+                                        (PP (IN for)
+                                          (NP (NN help)))))))))))))
+                    (VP (MD will)
+                      (VP (VB be)
+                        (ADJP (RBR less) (JJ likely)
+                          (S
+                            (VP (TO to)
+                              (VP (VB get)
+                                (NP (PRP it))))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (EX There))
+    (VP (MD should)
+      (VP (VB be)
+        (ADJP (RBR more) (JJ pharmacy)
+          (PP (IN with)
+            (NP
+              (NP (DT a) (JJ local) (NN doctor))
+              (CC or)
+              (NP (NN physician)))))
+        (S
+          (VP (TO to)
+            (VP
+              (ADVP (RB conveniently))
+              (VB get)
+              (NP (PRP$ your) (NN medication)
+                (CC and)
+                (NN check-up))
+              (PP (IN at)
+                (NP (DT the) (JJ same) (NN time))))))))))
+
+(ROOT
+  (S
+    (NP (DT Another) (NN thing))
+    (PRN (, ,)
+      (SINV
+        (S
+          (S
+            (NP (PRP I))
+            (VP (MD would)
+              (VP (VB like)
+                (S
+                  (VP (TO to)
+                    (VP (VB mention)
+                      (PP (IN from)
+                        (NP (DT the) (JJ previous) (NN post)))))))))
+          (, ,)
+          (S
+            (NP (PRP they))
+            (VP (VBP are) (: :)
+              (PP (TO To)
+                (NP (DT the) (NNP Disable) (NNS people))))))
+        (, ,)
+        (VP (VBZ HIV/AIDS))
+        (NP
+          (NP (NNS patients))
+          (, ,)
+          (NP
+            (NP
+              (ADJP (RB etc.) (JJ serious))
+              (NNS diseases))
+            (, ,)
+            (S
+              (S
+                (NP (PRP they))
+                (VP (MD must)
+                  (S
+                    (VP (TO to)
+                      (VP (VB be)
+                        (VP
+                          (VP
+                            (VP (VBN treated)
+                              (ADVP (RB fairly)))
+                            (CC and)
+                            (VP
+                              (ADJP (JJ appropriate))
+                              (PP (TO to)
+                                (NP (DT the) (JJ normal) (NNS people)))))
+                          (, ,)
+                          (CC or)
+                          (VP (MD may)
+                            (VP
+                              (VP (VB be)
+                                (ADJP (JJR better))
+                                (PP (IN than)
+                                  (NP (DT those)))
+                                (SBAR (IN because)
+                                  (S
+                                    (NP (PRP they))
+                                    (VP (VBP are)
+                                      (ADJP (RB even) (JJR weaker))))))
+                              (CC and)
+                              (VP (VB depress)
+                                (UCP
+                                  (SBAR (IN for)
+                                    (S
+                                      (PP (IN along)
+                                        (NP (NN time)))
+                                      (VP (MD may)
+                                        (VP (VB be)
+                                          (NP (DT the) (JJ whole) (NN life))
+                                          (PP (RB even)
+                                            (FRAG
+                                              (PP (IN with)
+                                                (ADJP
+                                                  (ADJP (JJ mental))
+                                                  (, ,)
+                                                  (ADJP (JJ physical))
+                                                  (, ,)
+                                                  (CC or)
+                                                  (ADJP (JJ social) (NN health))))
+                                              (. .)))
+                                          (PP (TO To)
+                                            (NP (DT the) (JJ LGBT) (NN community)))))))
+                                  (, ,)
+                                  (SINV
+                                    (S
+                                      (NP (PRP they))
+                                      (ADVP (RB also))
+                                      (VP (VBZ needs)
+                                        (S
+                                          (VP (TO to)
+                                            (VP (VB be)
+                                              (VP (VBN treated)
+                                                (ADVP (RB equally))
+                                                (PP (TO to)
+                                                  (NP (JJ other) (NNS people)))))))))
+                                    (VP (VBZ regardless))
+                                    (NP
+                                      (NP (NN race))
+                                      (, ,)
+                                      (NP
+                                        (NP (NN age))
+                                        (, ,)
+                                        (NP (NN background))
+                                        (, ,) (FW etc.)))
+                                    (. .))
+                                  (CC And)
+                                  (S
+                                    (NP (DT this))
+                                    (VP (VBZ is)
+                                      (NP
+                                        (NP (DT the) (NN task))
+                                        (PP (IN of)
+                                          (NP (DT the) (NN health) (NN care) (NNS providers)))
+                                        (SBAR
+                                          (WHNP (WP who))
+                                          (S
+                                            (VP (VBP are)
+                                              (ADJP (JJ responsible)
+                                                (PP (IN in)
+                                                  (S
+                                                    (VP (VBG providing)
+                                                      (NP (PRP them))
+                                                      (NP (DT the)
+                                                        (ADJP (JJS best) (NN quality))
+                                                        (NN health) (NN service))))))))))))
+                                  (. .)))
+                              (NP
+                                (NP (NNS People))
+                                (SBAR
+                                  (WHNP (WP who))
+                                  (S
+                                    (VP (VBZ is)
+                                      (SBAR (IN in)
+                                        (S
+                                          (NP (DT the) (NNP Nursing) (NN home))
+                                          (VP
+                                            (VP (MD would)
+                                              (VP (VB be)
+                                                (VP (VBN suffered)
+                                                  (NP
+                                                    (ADJP (RB so) (JJ many))
+                                                    (NNS problems)))))
+                                            (CC and)
+                                            (VP (MD ca) (RB n't)
+                                              (VP (VB get)
+                                                (PRT (RP away))
+                                                (PP (IN from)
+                                                  (NP (VBG aging))))))))))))))))))))
+              (, ,) (IN so)
+              (S
+                (NP (PRP they))
+                (VP (VBP need)
+                  (S
+                    (VP (TO to)
+                      (VP (VB have)
+                        (NP (DT a) (JJ good) (NN care))
+                        (PP (RB even) (IN about)
+                          (ADJP (JJ mental)))
+                        (, ,)
+                        (UCP
+                          (ADJP (JJ physical))
+                          (, ,)
+                          (CC and)
+                          (NP
+                            (NP (JJ social) (NN health) (NN treatment))
+                            (SBAR
+                              (S
+                                (VP (TO to)
+                                  (VP (VB make)
+                                    (S
+                                      (NP (PRP them))
+                                      (VP (VB enjoy)
+                                        (NP
+                                          (NP (DT the) (NN rest))
+                                          (PP (IN of)
+                                            (NP (NN life))))))))))))))))))))
+        (. .)))
+    (NP (PRP It))
+    (VP (MD should)
+      (VP (VB be)
+        (NP
+          (NP (JJR more) (NN health) (NN care))
+          (SBAR
+            (WHNP
+              (NP (NN show)
+                (CC or)
+                (NNS programs))
+              (PP (IN as)
+                (NP
+                  (NP (JJ many) (NN health) (NN issue) (NNS commercials))
+                  (PP (TO to)
+                    (NP (NN everyone))))))
+            (S
+              (VP (TO to)
+                (VP (VB make)
+                  (NP
+                    (NP (DT an) (NN announcement)
+                      (CC or)
+                      (NN warning))
+                    (PP (IN about)
+                      (NP
+                        (NP (DT any) (NN thing))
+                        (VP (VBN related)
+                          (PP (TO to)
+                            (NP (NN health)))
+                          (SBAR (IN like)
+                            (S
+                              (S
+                                (X
+                                  (ADVP (RB overdosing))
+                                  (, ,)
+                                  (NP
+                                    (NP (NN street) (NN drug))
+                                    (, ,)
+                                    (NP (JJ eating) (NN habitat))
+                                    (, ,)
+                                    (NP (JJ passive) (NN life) (NN style))
+                                    (, ,)
+                                    (NP (JJ unhealthy) (NNS behaviors))
+                                    (, ,)
+                                    (NP (NN smoking))
+                                    (, ,)
+                                    (NP (NN drinking))
+                                    (, ,)
+                                    (NP (NNP STDs))
+                                    (, ,)
+                                    (NP (NN HIV) (NN thread))
+                                    (, ,)
+                                    (NP (FW etc.)))
+                                  (. .))
+                                (NP (EX There))
+                                (VP (VBP are)
+                                  (ADVP (RB now))
+                                  (NP
+                                    (NP (JJ many)
+                                      (CC and)
+                                      (JJ many) (NN case))
+                                    (PP (IN of)
+                                      (NP
+                                        (NP (NN rape))
+                                        (VP (VBN related)
+                                          (PP (IN in)
+                                            (NP (DT the) (NN healthcare) (NN system)))))))))
+                              (, ,) (IN so)
+                              (S
+                                (NP (PRP it))
+                                (VP (VBZ needs)
+                                  (S
+                                    (VP (TO to)
+                                      (VP (VB pass)
+                                        (S
+                                          (NP
+                                            (NP (DT a) (NN law))
+                                            (CC or)
+                                            (NP (DT some) (NN restriction) (NNS rules)))
+                                          (VP (TO to)
+                                            (VP (VB reduce)
+                                              (NP (DT this) (NN issue))
+                                              (PP (IN as)
+                                                (NP
+                                                  (ADJP (VBN guaranteed)
+                                                    (NP
+                                                      (NP (DT the) (JJ good) (JJ working) (NN environment))
+                                                      (PP (TO to)
+                                                        (NP (DT all) (NN healthcare)))))
+                                                  (NNS employees))))))))))))))))))))))))
+    (. .)))
+
+(ROOT
+  (FRAG
+    (S
+      (S
+        (NP
+          (NP (NNP Yes))
+          (, ,)
+          (CONJP (CC but)
+            (RB not))
+          (NP (DT all) (NNS people)))
+        (VP (VBP are)
+          (PP (IN like)
+            (SBAR
+              (WHNP (WP what))
+              (S
+                (NP (PRP you))
+                (VP (VBP say))
+                (. .)))))
+        (SBAR (IN As)
+          (S
+            (NP (PRP I))
+            (VP (VBP know)
+              (SBAR
+                (S
+                  (NP (EX there))
+                  (VP (VBP are)
+                    (ADVP (RB so))
+                    (NP
+                      (NP (JJ many) (NNS people))
+                      (SBAR
+                        (WHNP (WP who))
+                        (S
+                          (VP (VBP are)
+                            (ADJP (RB very) (JJ lazy)
+                              (CC and)
+                              (JJ dependence)))))))))))))
+      (, ,)
+      (CC but)
+      (S
+        (NP (EX there))
+        (VP (VBP are)
+          (ADVP (RB also))
+          (NP
+            (NP (NNS people))
+            (SBAR
+              (WHNP (WP who))
+              (S
+                (VP (VBP get)
+                  (NP
+                    (ADJP (RB really) (JJ sick)
+                      (CC and)
+                      (JJ serious))
+                    (NN illness))
+                  (SBAR (IN that)
+                    (S
+                      (NP (PRP they))
+                      (VP (MD can) (RB not)
+                        (VP (VB afford)
+                          (PP (IN by)
+                            (NP (PRP themselves)))
+                          (S
+                            (VP (TO to)
+                              (VP (VB pay)
+                                (PP (IN for)
+                                  (NP
+                                    (NP (DT the) (NN medication))
+                                    (CONJP (RB as) (RB well) (IN as))
+                                    (NP (JJ other) (NN health) (NNS issues))))))))))))))))))))
+
+(ROOT
+  (S
+    (NP (PRP I))
+    (VP (VBP agree)
+      (SBAR
+        (S
+          (S
+            (PP (IN with)
+              (NP (PRP you)))
+            (, ,)
+            (NP (PRP it))
+            (VP (VBZ needs)
+              (S
+                (VP (TO to)
+                  (VP (VB have)
+                    (NP (JJR more))
+                    (S
+                      (VP (TO to)
+                        (VP (VB get)
+                          (NP (DT the) (JJR better) (NN health) (NN service))))))))))
+          (CC and)
+          (ADVP (RB even))
+          (S
+            (VP
+              (ADVP (RB though))
+              (VBG saving)
+              (NP (NN time)
+                (CC and)
+                (NN money)))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (PRP I))
+      (VP (VBP agree))
+      (. .))
+    (S
+      (SBAR (IN Although)
+        (S
+          (NP (NN healthcare))
+          (VP (VBZ covers)
+            (NP (JJS most) (NNS things)))))
+      (, ,)
+      (NP (DT these) (VBN specialized) (NNS areas))
+      (VP
+        (VP (MD should) (RB n't)
+          (VP (VB be)
+            (VP (VBN neglected))))
+        (, ,)
+        (CC and)
+        (VP (MD should)
+          (ADVP (RB also))
+          (VP (VB recieve)
+            (NP
+              (NP (DT the) (JJ same) (NN ammount))
+              (PP (IN of)
+                (NP (NN care))))
+            (, ,)
+            (SBAR (IN if)
+              (S (RB not)
+                (ADJP (JJR more))))
+            (, ,)
+            (PP (IN than)
+              (NP
+                (NP (DT the) (NN amount))
+                (PP (VBN given)
+                  (PP (IN in)
+                    (NP (JJ general) (NN healthcare))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (JJ Regular) (NN check) (NNS ups))
+      (PP (IN on)
+        (NP (NNS physicians))))
+    (VP (MD should)
+      (VP (VB be)
+        (VP (VBN required)
+          (S
+            (VP (TO to)
+              (VP (VB make)
+                (ADJP (JJ sure))
+                (SBAR (IN that)
+                  (S
+                    (NP (PRP they))
+                    (ADVP (RB still))
+                    (VP
+                      (VP (VBP have)
+                        (NP (NNS morals)
+                          (CC and)
+                          (NNS values)))
+                      (CC and)
+                      (VP
+                        (ADVP (RB really))
+                        (VBP do)
+                        (NP
+                          (NP (NN care))
+                          (PP (IN about)
+                            (NP (DT the) (NNS patients)))))))))))
+          (SBAR (RB rather) (IN than)
+            (S
+              (NP (PRP they))
+              (VP (VBP 're)
+                (NP (NNS paychecks))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (DT The) (JJ new) (NN technology))
+      (VP (MD would)
+        (ADVP (RB also))
+        (VP (VB reduce)
+          (NP
+            (NP (DT the) (NN amount))
+            (PP (IN of)
+              (NP (NN time))))
+          (SBAR (IN that)
+            (S
+              (NP (NN surgery))
+              (VP (MD would)))))))
+    (CC or)
+    (S
+      (NP (JJ regular) (JJ everyday) (NNS visits))
+      (VP (MD would)
+        (VP (VB take)))
+      (. .))
+    (SBAR
+      (ADVP (RB Also))
+      (IN with)
+      (S
+        (NP
+          (NP (JJ new) (NNS things))
+          (VP (VBG coming)
+            (PRT (RP out))
+            (ADVP (RB there))))
+        (VP (MD should)
+          (VP (VB be)
+            (NP
+              (NP (NNS seminars))
+              (PP (IN for)
+                (NP (PRP them)))
+              (S
+                (VP (TO to)
+                  (VP (VB be)
+                    (VP (VBN displayed)
+                      (SBAR (RB so) (IN that)
+                        (S
+                          (NP (DT the) (NNS doctors))
+                          (VP (VBP have)
+                            (NP
+                              (NP (DT a) (NN chance))
+                              (PP (IN of)
+                                (S
+                                  (VP (VBG purchasing)
+                                    (NP (PRP them))))))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NN Support) (NNS groups))
+      (PP (IN for)
+        (NP
+          (NP (NNS people))
+          (SBAR
+            (WHNP (WDT that))
+            (S
+              (VP (VBP are)
+                (ADJP
+                  (ADJP (RB chronically) (JJ ill)
+                    (SBAR
+                      (S
+                        (VP (MD should)
+                          (VP (VB be)
+                            (VP (VBN provided)
+                              (PP (IN by)
+                                (NP (DT the) (NN government)))
+                              (SBAR (RB so) (IN that)
+                                (S
+                                  (NP (PRP they))
+                                  (VP (VBP have)
+                                    (NP
+                                      (NP (DT a) (JJR better) (NN chance))
+                                      (PP (IN of)
+                                        (S
+                                          (VP (VBG thriving)
+                                            (PP (IN in)
+                                              (NP (NN life))))))))))))))))
+                  (CC and)
+                  (ADJP (RB not) (RB just)
+                    (S
+                      (VP (TO to)
+                        (VP (VB know)
+                          (SBAR
+                            (SBAR (IN that)
+                              (S
+                                (NP (JJ other) (NNS people))
+                                (VP (VBP suffer))))
+                            (CC but)
+                            (SBAR (IN that)
+                              (S
+                                (NP (PRP they))
+                                (VP (MD can)
+                                  (VP (VB help)
+                                    (NP (DT each) (JJ other))))))))))))))))))
+    (VP
+      (VP (VBP live)
+        (NP (DT a) (JJ healthier) (NN lifestyle))
+        (S
+          (VP (TO to)
+            (VP (VB try)
+              (CC and)
+              (VB relieve)
+              (NP (DT some) (NN pain))))))
+      (CC and)
+      (VP
+        (ADVP (RB maybe))
+        (ADVP (RB even))
+        (VBP live)
+        (ADVP (RBR longer))))
+    (. .)))
+
+(ROOT
+  (S
+    (SBAR (IN If)
+      (S
+        (NP (NNP Medicare/Medicaid))
+        (VP (MD would)
+          (VP
+            (VP (VB crack)
+              (PRT (RP down))
+              (PP (IN on)
+                (NP (DT the) (NN system))))
+            (CC and)
+            (ADVP (RB actually))
+            (VP (VB administer)
+              (PP (TO to)
+                (NP
+                  (NP (DT the) (NNS people))
+                  (SBAR
+                    (WHNP (WP who))
+                    (S
+                      (VP (VBP need)
+                        (NP (PRP it))
+                        (ADVP (RB then))))))))))))
+    (NP (NNS taxes))
+    (VP (MD would)
+      (ADVP (RB probably))
+      (VP (VB go)
+        (PRT (RP down))
+        (SBAR (IN because)
+          (S
+            (NP (DT the) (NN government))
+            (VP (MD would) (RB not)
+              (VP (VB have)
+                (S
+                  (VP (TO to)
+                    (VP (VB put)
+                      (NP
+                        (ADJP (RB so) (JJ much))
+                        (NN money))
+                      (PP (IN towards)
+                        (NP (DT the) (NN healthcare) (NN system))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NNP Assistant))
+      (VP (VBG living)
+        (PP (IN for)
+          (NP (DT the) (JJ elderly)))))
+    (VP (MD should)
+      (VP (VB be)
+        (ADJP (RBR more) (JJ affordable))
+        (SBAR (RB so) (IN that)
+          (S
+            (NP (DT the) (NN nursing) (NNS homes))
+            (VP (MD will) (RB not)
+              (VP (VB be)
+                (ADJP (RB so) (VBN crowded))))))
+        (, ,)
+        (SBAR (IN because)
+          (S
+            (NP (DT some) (JJ elderly) (NNS people))
+            (VP (VBP resort)
+              (PP (TO to)
+                (NP (DT the) (NN nursing) (NN home)))
+              (SBAR (IN since)
+                (S
+                  (NP (DT that))
+                  (VP (VBZ is)
+                    (NP
+                      (NP (DT all))
+                      (SBAR
+                        (S
+                          (NP (PRP they))
+                          (VP (VBP 're)
+                            (NP
+                              (NP (NN insurance))
+                              (SBAR
+                                (S
+                                  (VP (MD will)
+                                    (VP (VB cover))))))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (VP (VBG Maintaining)
+        (NP (DT a) (JJ good) (NN healthcare) (NN system))))
+    (VP (VBZ is)
+      (NP (DT the) (JJ key) (NN reason))
+      (SBAR (IN so)
+        (S
+          (NP (RB maybe) (DT the) (NN government))
+          (VP (MD should)
+            (ADVP (RB really))
+            (VP (VB evaluate)
+              (PP
+                (ADVP
+                  (NP (DT this) (NN area))
+                  (RBR more))
+                (IN than)
+                (NP (PDT all) (DT the) (JJ other) (NNS ones))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (DT The) (NN budget))
+      (PP (IN for)
+        (NP
+          (NP (DT the) (NN healthcare))
+          (SBAR
+            (S
+              (S
+                (NP (NNS services))
+                (VP (VBZ is)
+                  (VP (VBG reducing)))
+                (. .))
+              (IN So)
+              (S
+                (NP (PRP it))
+                (VP (VBZ needs)
+                  (S
+                    (VP (TO to)
+                      (VP (VB be)
+                        (VP (VBN considered)
+                          (S
+                            (VP (TO to)
+                              (VP (VB increase)
+                                (NP
+                                  (NP (DT that) (NN amount))
+                                  (PP (IN of)
+                                    (NP (NN money))))))))))))
+                (. .)))))))
+    (PRN
+      (SINV
+        (S
+          (SBAR (IN If)
+            (S
+              (NP (DT the) (NNS citizens))
+              (VP (VBP are)
+                (ADJP (JJ healthy)))))
+          (, ,)
+          (NP (DT that))
+          (VP (VBZ means)
+            (S
+              (S
+                (NP (DT the) (NN country))
+                (VP (VBZ is)
+                  (ADVP (RB also))
+                  (ADJP (`` ``) (JJ healthy) ('' '')
+                    (SBAR
+                      (SINV
+                        (ADVP (RB too) (. .))
+                        (ADJP
+                          (NP (DT Some))
+                          (JJ new))
+                        (VP (VBZ researches)
+                          (SBAR (IN in)
+                            (S
+                              (NP (NNP Health) (NN science))
+                              (VP (MD should)
+                                (VP (VB be)
+                                  (VP (VBN encouraged)
+                                    (CC and)
+                                    (VBN granted)
+                                    (PP (IN by)
+                                      (NP (DT the) (NNS governments)
+                                        (CC or)
+                                        (JJ other) (NNS foundations) (NN help)))))))))
+                        (NP
+                          (NP
+                            (NP (DT the) (JJ young) (JJ new) (NNS scientists))
+                            (SBAR
+                              (S
+                                (VP (TO to)
+                                  (VP (VB find)
+                                    (NP (DT the) (JJ new) (NNS methods)))))))
+                          (CC and)
+                          (NP
+                            (NP (JJR better) (NNS cures))
+                            (PP (IN for)
+                              (NP
+                                (NP (DT the) (NNS patients))
+                                (CC or)
+                                (NP (RB even) (DT a) (JJ whole) (NN healthcare) (NNS systems))))))
+                        (. .))))))
+              (S
+                (NP (NNP Working))
+                (ADVP (RB hard))
+                (VP (MD will)))
+              (S
+                (NP (JJ Many) (NNS people))
+                (VP (VBP are)
+                  (VP (VBG complaining)
+                    (PP (IN about)
+                      (NP (DT the) (NN healthcare) (NN insurance))))))
+              (, ,) (RB not)
+              (S
+                (NP (NNP Medicare)
+                  (CC or)
+                  (NNP Medicaid))
+                (, ,)
+                (ADVP (RB so))
+                (, ,)
+                (NP (EX there))
+                (VP (VBZ has)
+                  (S
+                    (VP (TO to)
+                      (VP (VB be)
+                        (NP (DT some) (JJ social) (NNS benefits)))))
+                  (S
+                    (VP (TO to)
+                      (VP (VB qualify)
+                        (PP (IN for)
+                          (NP
+                            (NP (DT those))
+                            (SBAR
+                              (WHNP (WP who))
+                              (S
+                                (VP (VBP are) (RB not)
+                                  (VP (VBG getting)
+                                    (ADJP (RB enough) (JJ financial))))))))))))))))
+        (VP (VBZ supports)
+          (PP (IN for)))
+        (NP (PRP it))
+        (. .)))
+    (NP (EX There))
+    (VP (MD must)
+      (VP (VB be)
+        (NP (DT some) (JJ new) (NNS hospitals))
+        (S
+          (VP (VB build)
+            (S
+              (VP (TO to)
+                (VP (VB server)
+                  (ADVP (RB enough)
+                    (PP (IN for)
+                      (NP (DT the) (VBG increasing) (NNS patients)))))))
+            (SBAR
+              (WHADVP (WRB where))
+              (S
+                (NP (DT the) (JJ old) (NN one))
+                (VP
+                  (VP (VBZ is)
+                    (ADJP (JJ insufficient)))
+                  (CC and)
+                  (VP (VBZ does)
+                    (PP (RB not)
+                      (FRAG
+                        (ADJP (JJ well-qualified)
+                          (PP (IN for)
+                            (NP (DT the) (JJ whole) (NN service))))
+                        (. .)))
+                    (NP
+                      (NP (DT Any) (NNS specialists)
+                        (CC or)
+                        (NNS nurses))
+                      (SBAR
+                        (WHNP (WP who))
+                        (S
+                          (VP (VBP violate)
+                            (SBAR
+                              (S
+                                (NP
+                                  (NP (DT the) (NN policy))
+                                  (CC or)
+                                  (NP (NNS rules)))
+                                (VP (MD must)
+                                  (VP (VB be)
+                                    (VP (VBN charged)
+                                      (PP (VBN based)
+                                        (PP (IN on)
+                                          (NP
+                                            (NP (DT the) (NN scale))
+                                            (SBAR
+                                              (WHPP (IN of)
+                                                (WHNP (WDT what) (NN errors)))
+                                              (S
+                                                (NP (PRP they))
+                                                (VP (VBP make)
+                                                  (PP (IN during)
+                                                    (NP (DT the) (NN healthcare) (NNS services))))))))))))))))))))))))
+        (SBAR (IN as)
+          (S
+            (VP (MD will)
+              (VP (VB be)
+                (NP
+                  (NP (DT a) (JJ good) (NN model))
+                  (PP (IN for)
+                    (NP (NNS others)
+                      (S
+                        (VP (TO to)
+                          (VP (VB obey)
+                            (CC and)
+                            (VB minimize)
+                            (NP
+                              (NP (DT the) (NNS errors))
+                              (PP (IN from)
+                                (NP (RB little))))
+                            (PP (TO to)
+                              (NP (CD zero)))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (PRP I))
+    (VP (VBP agree)
+      (PP (IN with)
+        (FRAG
+          (NP (PRP you))
+          (. .)))
+      (SBAR (RB even)
+        (S
+          (NP (EX there))
+          (VP (VBP are)
+            (NP
+              (NP (DT some) (NNS people))
+              (SBAR
+                (WHNP (WP who))
+                (S
+                  (VP (VBP cheat)
+                    (PP (IN on)
+                      (NP (DT this)))
+                    (S
+                      (VP (TO to)
+                        (VP (VB get)
+                          (NP
+                            (NP (DT the) (JJ free) (NNS benefits))
+                            (PP (IN for)
+                              (NP (PRP them)))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (NNP Healthcare) (NNS services))
+    (VP (VBZ is)
+      (NP
+        (NP (PDT such) (DT a) (NN business))
+        (SBAR
+          (WHADVP (WRB where))
+          (S
+            (NP
+              (NP (NNS people))
+              (SBAR
+                (WHNP (WP who))
+                (S
+                  (VP (VBP are)
+                    (VP (VBN insured))))))
+            (VP (MD will)
+              (VP (VB get)
+                (NP (DT the) (JJS best) (NN service))
+                (SBAR (IN as)
+                  (S
+                    (NP (PRP they))
+                    (VP (VBP pay)
+                      (PP (IN for)
+                        (SBAR
+                          (WHNP (WP what))
+                          (S
+                            (NP (PRP they))
+                            (VP (VBP receive))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (DT That))
+      (VP (MD would)
+        (VP (VB be)
+          (ADJP (JJ great))))
+      (. !))
+    (CC But)
+    (S
+      (NP (NNS people))
+      (VP (VBP are)
+        (PP (IN in)
+          (NP
+            (NP (DT the) (NN way))
+            (PP (IN of)
+              (NP (JJ busy) (JJ working) (NN life)))))
+        (SBAR (IN so)
+          (S
+            (NP (PRP it))
+            (VP (VBZ needs)
+              (NP (DT the)
+                (ADJP (JJ quick)
+                  (CC and)
+                  (JJ fast))
+                (NN service))
+              (S
+                (VP (TO to)
+                  (VP (VB serve)
+                    (PP (IN as)
+                      (NP (JJ many) (NNS people))))))
+              (SBAR (IN as)
+                (S
+                  (NP (PRP it))
+                  (VP
+                    (VP (VBZ is))
+                    (CC and)
+                    (VP (VBN done)
+                      (ADVP (RB well)))))))))))
+    (. !)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NNP Yes) (NNP I) (NNP agree) (. .))
+      (SBAR
+        (S
+          (PP (IN In)
+            (S
+              (VP (VBG doing)
+                (ADVP (RB so)))))
+          (, ,)
+          (NP (PRP it))
+          (VP (MD would)
+            (ADVP (RB also))
+            (VP (VB reduce)
+              (NP
+                (NP (DT the) (NNS funds))
+                (VP (VBN required)
+                  (PP (IN for)
+                    (NP
+                      (NP (DT those))
+                      (SBAR
+                        (WHNP (WP who))
+                        (S
+                          (VP (VBP do) (RB n't)
+                            (VP (VB care)
+                              (ADVP (RB as) (RB much))
+                              (, ,)
+                              (PP (IN for)
+                                (NP (NN funding))))))))))))))))
+    (VP (MD should)
+      (ADVP (RB only))
+      (VP (VB go)
+        (PP (TO to)
+          (NP
+            (NP (DT those))
+            (SBAR
+              (WHNP (WP who))
+              (S
+                (ADVP (RB actually))
+                (VP (VBP care))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (DT This) (NN method))
+      (VP (VBZ sounds)
+        (ADJP (RB pretty) (JJ solid)
+          (PP (IN in)
+            (NP (PRP$ my) (NN opinion)))))
+      (. .))
+    (NP (DT The) (JJ only) (NN problem))
+    (VP (VBZ is)
+      (SBAR (IN that)
+        (S
+          (S
+            (ADVP (RB sometimes))
+            (NP (EX there))
+            (VP (VBP are)
+              (ADVP
+                (NP
+                  (ADJP (RBR more) (JJ sick))
+                  (NNS people))
+                (IN than))
+              (VP (VBN anticipated))))
+          (, ,)
+          (CC and)
+          (S
+            (NP (EX there))
+            (VP (VBZ is) (RB n't)
+              (ADJP (RB enough) (JJ healthcare)
+                (S
+                  (VP (TO to)
+                    (VP (VB deal)
+                      (PP (IN with)
+                        (NP
+                          (NP (DT the) (NN amount))
+                          (PP (IN of)
+                            (NP (NN sickness)))
+                          (SBAR
+                            (WHNP (WDT that))
+                            (S
+                              (VP (VBZ is)
+                                (VP (VBN presented))))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (SBAR (IN As)
+        (S
+          (NP (NN technology))
+          (VP (VBZ grows)
+            (NP
+              (ADJP (RBR more) (JJ advanced))
+              (NN day))
+            (PP (IN after)
+              (NP (NN day)))
+            (, ,)
+            (PP (IN at)
+              (NP
+                (NP (DT some) (NN point))
+                (SBAR
+                  (S
+                    (NP (EX there))
+                    (VP (VBZ is)
+                      (VP (VBG going)
+                        (S
+                          (VP (TO to)
+                            (VP (VB be)
+                              (NP (DT a) (NN way))
+                              (S
+                                (VP (TO to)
+                                  (VP
+                                    (VP (VB monitor)
+                                      (NP
+                                        (NP (DT all))
+                                        (PP (IN of)
+                                          (NP
+                                            (NP (DT those))
+                                            (SBAR
+                                              (WHNP (WP who))
+                                              (S
+                                                (ADVP (RB truly))
+                                                (VP (VBP need)
+                                                  (SBAR
+                                                    (S
+                                                      (SBAR
+                                                        (X (JJ healthcare) (. .) (NNP Hopefully))
+                                                        (S
+                                                          (NP (NNS people))
+                                                          (VP (MD can)
+                                                            (VP (VB do)
+                                                              (NP
+                                                                (NP (DT all))
+                                                                (PP (IN of)
+                                                                  (NP (DT the) (JJ necessary) (NNS things))))
+                                                              (S
+                                                                (VP (TO to)
+                                                                  (VP (VB get)
+                                                                    (NP (DT the) (NN help)))))))))
+                                                      (NP (PRP they))
+                                                      (VP (VBP need)))))))))))
+                                    (, ,)
+                                    (CC and)
+                                    (VP (VB get)
+                                      (PP (IN on)
+                                        (NP (NN track)))
+                                      (PP (TO to)
+                                        (S
+                                          (VP (VBG becoming)
+                                            (NP
+                                              (NP (NNP healthier) (. .))
+                                              (FRAG
+                                                (S
+                                                  (PP (IN At)
+                                                    (NP (DT this) (NN time)))
+                                                  (, ,)
+                                                  (NP (EX there))
+                                                  (VP (MD should)
+                                                    (ADVP (RB also))
+                                                    (VP (VB be)
+                                                      (NP (JJ enough) (NN medication)
+                                                        (CC and)
+                                                        (NN staff)
+                                                        (S
+                                                          (VP (TO to)
+                                                            (VP (VB deal)
+                                                              (PP (IN with)
+                                                                (NP
+                                                                  (NP (DT those))
+                                                                  (SBAR
+                                                                    (WHNP (WDT that))
+                                                                    (S
+                                                                      (VP (VBP need)
+                                                                        (NP (NN healthcare))))))))))))))
+                                                (, ,)
+                                                (SBAR (IN for)
+                                                  (S
+                                                    (S
+                                                      (PP (IN without)
+                                                        (NP
+                                                          (NP (DT the) (NN staff))
+                                                          (CC and)
+                                                          (NP (NNS supplies))))
+                                                      (, ,)
+                                                      (NP (NN healthcare))
+                                                      (VP (MD will)
+                                                        (VP (VB decrease))))
+                                                    (, ,)
+                                                    (CC and)
+                                                    (S
+                                                      (NP (JJR more) (NNS people))
+                                                      (VP (MD will)
+                                                        (VP
+                                                          (VP (VB remain)
+                                                            (ADJP (JJ sick)))
+                                                          (CC and)
+                                                          (VP (VB die)))))))
+                                                (. .)))))))))
+                                (PP (IN At)
+                                  (NP (DT the) (NN rate) (NN technology)))
+                                (S
+                                  (VP (VBZ is)
+                                    (ADJP (VBG evolving)))))))))))))))))
+      (, ,)
+      (NP (EX there))
+      (VP (MD should)
+        (ADVP (RB already))
+        (VP (VB be)
+          (NP (DT a) (NN system)))))
+    (, ,)
+    (ADVP (RB unfortunately))
+    (S
+      (NP (RB not) (NN everyone))
+      (VP (MD can)
+        (VP (VB be)
+          (VP (VBN trusted)
+            (PP (IN with)
+              (NP
+                (NP (NN medication))
+                (CC and)
+                (NP (DT the) (NN help))))
+            (SBAR (IN that)
+              (S
+                (NP (DT the) (NN staff))
+                (VP (VBZ provides))))))))
+    (. .)))
+
+(ROOT
+  (S (CC But)
+    (NP (PRP it))
+    (VP (MD will)
+      (VP (VB be)
+        (ADJP (RB very) (JJ difficult)
+          (S
+            (VP (TO to)
+              (VP (VB draw)
+                (NP
+                  (NP (DT the) (NN line))
+                  (PP (IN of)
+                    (SBAR
+                      (WHNP (WP what))
+                      (S
+                        (VP (MD will)
+                          (VP (VB fit)
+                            (PP (IN under) (`` ``)
+                              (NP (NN emergency))
+                              ('' '')))))))))))
+          (SBAR (IN if)
+            (S
+              (NP (DT those) (NNS visits))
+              (VP (VBP are)
+                (ADJP (JJ free) (RB completely))))
+            (. .)))
+        (SBAR
+          (S
+            (NP (PRP It))
+            (VP (MD should)
+              (ADVP (RB probably))
+              (VP (VB be)
+                (PP (IN at)
+                  (NP (DT a)
+                    (ADJP (RBR more) (JJ reasonable))
+                    (NN cost)))
+                (ADVP (RB instead))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (PRP I))
+      (VP (VBP think)
+        (SBAR
+          (S
+            (NP (JJ medical) (NN research))
+            (VP (VBZ is)
+              (NP
+                (NP (DT a) (JJ big) (NN factor))
+                (PP (IN in)
+                  (S
+                    (VP (VBG providing)
+                      (NP (JJ adequate) (NN healthcare))))))))))
+      (. .))
+    (NP (JJR More) (NN funding))
+    (VP (MD should)
+      (VP (VB be)
+        (ADJP (JJ available)
+          (PP (TO to)
+            (NP (NNS researchers))))
+        (S
+          (VP (TO to)
+            (VP (VB find)
+              (NP
+                (NP (NNS cures))
+                (PP (IN for)
+                  (NP
+                    (NP (NNS diseases))
+                    (, ,)
+                    (NP
+                      (NP (JJ new) (NNS techniques))
+                      (PP (IN for)
+                        (NP
+                          (NP (NNS procedures))
+                          (, ,)
+                          (NP (JJ new) (NNS drugs))
+                          (, ,)
+                          (CC and)
+                          (NP (NNS ways))))))))
+              (S
+                (VP (TO to)
+                  (VP (VB prevent)
+                    (NP (NNS illnesses))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (PRP I))
+      (VP (VBP do) (RB n't)
+        (VP (VB think)
+          (SBAR (IN that)
+            (SINV
+              (S
+                (S
+                  (VP (VBG having)
+                    (NP (DT a) (NN pharmacy))))
+                (CC and)
+                (S
+                  (NP (NN physician))
+                  (ADVP (RB together))
+                  (VP (MD will)
+                    (ADVP (RB really))
+                    (VP (VB make)
+                      (FRAG
+                        (WHNP (WDT that))
+                        (ADVP (RB much))
+                        (PP (IN of)
+                          (NP (DT a) (NN difference)))
+                        (. .))))))
+              (VP
+                (ADVP (RB there))
+                (VBP are)
+                (ADJP (RBR more) (JJ important)))
+              (NP
+                (NP (NNS things))
+                (PP (IN than)
+                  (S
+                    (VP (VBG making)
+                      (S
+                        (NP (PRP it))
+                        (ADJP (`` ``) (JJ convenient) ('' '')
+                          (PP (IN for)
+                            (NP (DT the) (NN patient)))))
+                      (SBAR (IN so)
+                        (S
+                          (NP (PRP they))
+                          (VP (VBP do) (RB n't)
+                            (VP (VB have)
+                              (S
+                                (VP (TO to)
+                                  (VP (VB drive)
+                                    (PP (TO to)
+                                      (NP (DT a) (NN pharmacy))))))))))))))
+              (. .))))))
+    (NP (PRP I))
+    (VP (MD 'd) (RB rather)
+      (VP (VB have)
+        (NP (DT a)
+          (ADJP (RBR more) (JJ fit))
+          (NN physician)
+          (CC and)
+          (NN pharmacist))
+        (ADVP (RB instead))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (PRP I))
+      (VP (VBP agree)))
+    (CC and)
+    (S
+      (NP (DT the) (JJR more) (NN technology))
+      (VP (VBD advances)
+        (NP (DT the) (JJR more) (NN job) (NNS opportunities))
+        (PP (IN for)
+          (NP (NNS people)))
+        (PP (IN without)
+          (NP
+            (NP (NNS jobs))
+            (VP (VBG leading)
+              (PP (TO to)
+                (NP
+                  (ADJP (RBR less) (JJ dependent))
+                  (NNS people)))
+              (PP (IN on)
+                (NP (NN healthcare))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (PRP I))
+    (VP (VBP agree)
+      (PP (IN on)
+        (NP
+          (NP (JJR more) (NN research))
+          (PP (IN towards)
+            (NP
+              (NP (NNS diseases))
+              (SBAR
+                (WHNP (WDT which))
+                (S
+                  (VP (VBZ is)
+                    (NP
+                      (NP (CD one))
+                      (PP (IN of)
+                        (NP
+                          (NP (DT the) (JJ main) (NNS sources))
+                          (PP (IN of)
+                            (NP (NN healthcare))))))
+                    (SBAR (IN because)
+                      (S
+                        (SBAR (IN if)
+                          (S
+                            (NP (DT a) (NN cure))
+                            (VP (VBZ is)
+                              (VP (VBN discovered)
+                                (ADVP (RB then))))))
+                        (NP (PRP it))
+                        (VP (VBZ gives)
+                          (NP
+                            (NP (DT the) (NNS people))
+                            (SBAR
+                              (WHNP (WP who))
+                              (S
+                                (VP (VBP are)
+                                  (ADJP (JJ ill)
+                                    (S
+                                      (VP (TO to)
+                                        (VP
+                                          (VP (VB live)
+                                            (NP (JJ healthy) (NNS lives)))
+                                          (CC and)
+                                          (VP (VB get)
+                                            (PRT (RP back))
+                                            (PP (IN on)
+                                              (NP (PRP$ their) (NNS feet)))))))))))))))))))))))
+    (. .)))
+

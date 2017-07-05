@@ -1,5 +1,3 @@
-# The results can be found at file:///C:/Users/Nipun/Desktop/MS/Summer%202017/TextSummarization/metrics.html
-
 from __future__ import division
 
 from nltk.stem import PorterStemmer, SnowballStemmer
