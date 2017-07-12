@@ -18,6 +18,12 @@ CONLL_FILE = 'opinions.conll'
 if __name__ == '__main__':
 	list_of_connectives = ['accordingly','additionally','after','afterward', 'afterwards','also','alternatively','although','and','as','as a result','as an alternative','as if','as long as','as soon as','as though','as well','because','before','before and after','besides','but','by comparison','by contrast','by then','consequently','conversely','earlier','either','else','except','finally','for','for example','for instance','further','furthermore','hence','however','if','if and when','then','in addition','in contrast','in fact','in other words','in particular','in short','in sum','in the end','in turn','indeed','insofar as','instead','later','lest','likewise','meantime','meanwhile','moreover','much as','neither','nevertheless','next','nonetheless','nor','now that','on the contrary','on the one hand','on the other hand','once','or','otherwise','overall','plus','previously','rather','regardless','separately','similarly','simultaneously','since','so','so that','specifically','still','then','thereafter','thereby','therefore','though','thus','till','ultimately','unless','until','when','when and if','whereas','while','yet']
 	sentence_index = 0
+	category_types = ['reason', 'justification', 'implementation', 'reinforcement', 'outcome', 'goal']
+	reason_connectives = ['as', 'because', 'since']
+	outcome_connectives = ['so that', 'will', 'then', 'when']
+	goal_connectives = ['should be', 'must']
+	reinforcement_connectives = ['need']
+	justification_connectives = ['so', 'to make sure']
 
 	known_connectives = list()
 	unknown_connectives = list()
