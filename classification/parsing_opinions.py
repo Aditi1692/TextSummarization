@@ -28,6 +28,13 @@ if __name__ == '__main__':
 	known_connectives = list()
 	unknown_connectives = list()
 	flag = 0
+	list_of_nouns = list()
+	list_of_verbs = list()
+	index_to_word_mapping = dict()
+	root_word_index_mapping = dict()
+	root_to_child_index_mapping = dict()
+	root_word = ""
+	root_word_index = -1
 	
 	with open(CONLL_FILE) as inputted_file:
 		lines = inputted_file.read().splitlines() # read input file
@@ -37,26 +44,74 @@ if __name__ == '__main__':
 
 		# Check if there are more lines in the parse tree
 		if len(dep_tree) != 1:
+			# Check to see if there is a connective. Set flag to 1
 			if dep_tree[1] in list_of_connectives:
 				flag = 1
+
+			# Build the index to word mapping for a given parse tree
+			index_to_word_mapping[int(dep_tree[0])] = dep_tree[1]
+
+			# Build the word to root word mapping for a given parse tree
+			root_word_index_mapping[int(dep_tree[0])] = int(dep_tree[6])
+
+			# Find the root word and its index
+			if dep_tree[7] == 'root':
+				root_word = dep_tree[1]
+				root_word_index = int(dep_tree[0])
+
+			# Build a mapping for the child of each root word. For example 2 -> [4, 5, 6] where 2 is the root for 4, 5 and 6
+			if int(dep_tree[6]) in root_to_child_index_mapping:
+				root_to_child_index_mapping[int(dep_tree[6])].append(int(dep_tree[0]))
+			else:
+				root_to_child_index_mapping[int(dep_tree[6])] = [int(dep_tree[0])]
+
+			# Check whether the given word is a verb or a noun
+			if dep_tree[3] == 'NOUN':
+				list_of_nouns.append(dep_tree[1])
+			elif dep_tree[3] == 'VERB':
+				list_of_verbs.append(dep_tree[1])
+
 		# The parse tree has ended
 		else:
+			# print "The index to word mapping is: "
+			# for index in index_to_word_mapping:
+			# 	print index, " : ", index_to_word_mapping[index]
+
+			# print ""
+			# print "The word to root word mapping is: "
+			# for index in root_word_index_mapping:
+			# 	print index, " : ", root_word_index_mapping[index]
+
+			print ""
+			print "Root to child mapping is: "
+			for index in root_to_child_index_mapping:
+				print index, " : ", root_to_child_index_mapping[index]
+
 			if flag == 1:
 				known_connectives.append(sentence_index)
 			else:
 				unknown_connectives.append(sentence_index)
+			
+			# Reset values for next sentence
 			sentence_index += 1
 			flag = 0
+			list_of_nouns = list()
+			list_of_verbs = list()
+			index_to_word_mapping = dict()
+			root_word_index_mapping = dict()
+			root_to_child_index_mapping = dict()
+			root_word = ""
+			root_word_index = -1
 
 			# Skip the empty sentence. This should be improved
 			# if sentence_index == 51:
 			# 	sentence_index += 1
 
-	print "The opinions with a connective are: "
-	for opinion_id in known_connectives:
-		print opinion_id
+	# print "The opinions with a connective are: "
+	# for opinion_id in known_connectives:
+	# 	print opinion_id
 
-	print
-	print "The opinions without a connective are: "
-	for opinion_id in unknown_connectives:
-		print opinion_id
+	# print
+	# print "The opinions without a connective are: "
+	# for opinion_id in unknown_connectives:
+	# 	print opinion_id

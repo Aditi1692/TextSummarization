@@ -4,13 +4,19 @@
 
 ## Purpose
 
-The aim of this project is to summarize the text present in an HTML page using the Latent Dirichlet Allocation (LDA) algorithm.
+The aim of this project is to summarize the text present in an HTML page using different algorithms, like the Latent Dirichlet Allocation (LDA) algorithm.
 
-In order to run the program, use the following command:
+In order to run the summarizer program, use the following command:
 
 `python summarizer.py <metric>`
     
     where: metric can be N, L, S or A(all)
+
+## Classification
+
+We have used the Stanford Dependency Parser to create dependency trees for each opinion. Based on these trees, we aim to extract summaries, based on the words and their part of speech in the paragraph.
+
+The code for classification can be found under classification/parsing_opinions.py
 
 ## References
 * https://rstudio-pubs-static.s3.amazonaws.com/79360_850b2a69980c4488b1db95987a24867a.html
