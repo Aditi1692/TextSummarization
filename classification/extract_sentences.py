@@ -7,6 +7,13 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 import networkx as nx
 
+
+class wordAttr(object):
+	def __init__(self, word, type):
+		self.word = word
+		self.type = type
+
+
 INPUT_FILE_PATH = "data.json"
 OUTPUT_FILE_PATH = "extracted_opinions.txt"
 CONLL_FILE = 'opinions.conll'
@@ -33,17 +40,53 @@ list_of_goal = ['should', 'be', 'must']
 list_of_reinforcement = ['need']
 list_of_outcome = ['will be', 'will', 'so that', 'if', 'when', 'would']
 
-def words_in_string(a_string):
-	if set(list_of_reason).intersection(a_string.split()):
-		return 'reason'
-	elif set(list_of_justification).intersection(a_string.split()):
-		return 'justification'
-	elif set(list_of_outcome).intersection(a_string.split()):
-		return 'outcome'
-	elif set(list_of_goal).intersection(a_string.split()):
-		return 'goal'
-	else:
-		return 'not defined'
+def summarize_text(text):
+	# stemmer = PorterStemmer()                 # You can change the stemmer here. Though I haven't used it
+	lemmatizer = WordNetLemmatizer()  # Lemmatizer which shortens the words. e.g.) causes -> cause
+	# vectorizer = TfidfVectorizer()              # Creates vectors of each word
+	vectorizer = CountVectorizer(stop_words=None)
+	all_text = []
+	# Used for LDA. Play around with n_topics and max_iter
+	lda = LatentDirichletAllocation(n_topics=1, max_iter=10, learning_method='online', learning_offset=50.,
+									random_state=0)
+	# List to store the lemmatized words
+	lemmatized_words = list()
+	list_words = dict()
+	word_order_dict = dict()
+	count = 0
+	normal_words = ""
+	summary = list()
+	# Used word tokenizer to tokenize the words
+	tokens = word_tokenize(normal_words)
+	for token in tokens:
+		token = token.lower()
+		# stemmed_words.append(stemmer.stem(token))
+		# Used lemmatizer on the words
+		lemmatized_words.append(token)
+		word_order_dict[count] = token
+		count += 1
+
+	# Removed stop words
+		lemmatized_words = [word for word in lemmatized_words if word not in stopwords.words('english')]
+
+	# print word2idx
+
+		# Perform LDA if there are any words that are lemmatized. Skip if the content is blank
+		if len(lemmatized_words) > 1:
+			# Create a vector of each word. It will be used to perform LDA
+			#print lemmatized_words
+			vectors = vectorizer.fit_transform(lemmatized_words)
+
+			# Perform LDA on these word vectors
+			lda.fit(vectors)
+
+			# Get the top words after performing LDA
+			tf_feature_names = vectorizer.get_feature_names()
+			summary.append(print_top_words(lda, tf_feature_names, 100, word_order_dict))
+			lemmatized_words = list()
+
+
+	return summary
 
 
 # Method to print the top words from LDA
@@ -63,114 +106,154 @@ def print_top_words(model, feature_names, n_top_words, word_order_dict):
 
     return " ".join([word_order_dict[i] for i in features])
 
+def compare_data(summary, data):
+	data_list = data.split(' ')
+	count = 0
+	missed_word = list()
+	for word in summary:
+		if word != data_list[count]:
+			missed_word.append(data_list[count])
+		count+=1
+
+
+
+def check_disjoint_graph(G):
+	isDisjoint = False
+	if isDisjoint:
+		summary = summarize_text(normal_words)
+		compare_data(summary, normal_words)
+
+
 import matplotlib.pyplot as plt
 
-def build_frame(list_of_words):
-	G = nx.Graph()
-	for key, value in list_words.iteritems():
-		if value == 'NOUN':
-			G.add_node(key)
-		elif value == 'VERB':
-			G.add_edge(key)
-	nx.draw(G)
-	plt.show()
+
+def build_graph(graph_list):
+	n1 = ""
+	consecutiveNum = 0
+	edge = ""
+	count = 0
+	frame_type = 'undefined'
+	for key, value in graph_list.iteritems():
+		G = nx.Graph()
+		if value.type in node_list:
+			if count%2 != 0 or count == 0:
+				print "Adding edge: " + edge
+				G.add_edge(count-1, count, label = edge, frame_type = frame_type)
+				edge = ""
+			if key - consecutiveNum == 1 or count == 0:
+				n1+=" "+value.word
+				consecutiveNum = key
+			else:
+				n1 = value.word
+		if value.type in edge_list:
+			if n1 != "":
+				print "Adding node: " + n1
+				G.add_node(count, label = n1)
+				n1 = ""
+				count += 1
+			edge += value.word
+
+		if value.word in list_of_justification:
+			print "Frame Type: Justification"
+			frame_type = 'justification'
+			G.add_edge(1, count, label = edge, frame_type = frame_type)
+
+		if value.word in list_of_goal:
+			frame_type = 'Frame Type: goal'
+			G.add_edge(1, count, label=edge, frame_type=frame_type)
+
+		if value.word in list_of_outcome:
+			frame_type = 'Frame Type: outcome'
+			G.add_edge(1, count, label=edge, frame_type=frame_type)
+
+		if value.word in list_of_reason:
+			frame_type = 'Frame Type: reason'
+			G.add_edge(1, count, label=edge, frame_type=frame_type)
+
+	if n1 != "":
+		print "Add node: "+ n1
+		G.add_node(count, label = n1)
+		count+=1
+
+	if edge != "":
+		print "Add edge"+ edge
+		G.add_edge(count-1, count, label = edge, frame_type = frame_type)
+
+	#nx.draw(G)
+	#plt.draw()
+
+	# TODO:
+	#check for any disjoint graph
+	check_disjoint_graph(G)
 
 
-
+from nltk.parse.dependencygraph import DependencyGraph
 
 if __name__ == "__main__":
 	# Get the file from the parent directory
 	with open(os.path.join(os.pardir, INPUT_FILE_PATH)) as data_file:
 		data = json.load(data_file)
 
-		# stemmer = PorterStemmer()                 # You can change the stemmer here. Though I haven't used it
-		lemmatizer = WordNetLemmatizer()  # Lemmatizer which shortens the words. e.g.) causes -> cause
-		# vectorizer = TfidfVectorizer()              # Creates vectors of each word
-		vectorizer = CountVectorizer()
-		all_text = []
-		# Used for LDA. Play around with n_topics and max_iter
-		lda = LatentDirichletAllocation(n_topics=1, max_iter=10, learning_method='online', learning_offset=50.,
-										random_state=0)
-		# List to store the lemmatized words
-		lemmatized_words = list()
-		
-	#write_output = open(OUTPUT_FILE_PATH, 'w')
-
-
-
-
-	#for word in words_in_string(my_word_list, a_string):
-	#	print(word)
-
+	index = 0
 	for line in data:
 		write_output = open(OUTPUT_FILE_PATH, 'w')
 		normal_words = line["content"].encode('ascii', 'ignore')
-		category = words_in_string(normal_words)
+		write_output.write(normal_words)
 
-		list_words = dict()
-		word_order_dict = dict()
-		count = 0
-		# Used word tokenizer to tokenize the words
-		tokens = word_tokenize(normal_words)
-		for token in tokens:
-			token = token.lower()
-			# stemmed_words.append(stemmer.stem(token))
-			# Used lemmatizer on the words
-			lemmatized_words.append(token)
-			word_order_dict[count] = token
-			count += 1
+	write_output.close()
+	#category = words_in_string(normal_words)
+	#construct_graph(data)
 
-		# Removed stop words
-		lemmatized_words = [word for word in lemmatized_words if word not in stopwords.words('english')]
+	os.system(
+		"java -mx4096m -cp \"/home/aditi/Downloads/stanford-parser-full-2017-06-09/*:\" edu.stanford.nlp.parser.lexparser.LexicalizedParser -sentences \"newline\" -maxLength \"300\" -outputFormat \"penn\" /home/aditi/Downloads/englishPCFG.ser.gz ~/PycharmProjects/TextSummarization/classification/extracted_opinions.txt > testsent.tree")
+	os.system(
+		"java -mx4096m -cp \"/home/aditi/Downloads/stanford-parser-full-2017-06-09/*:\" edu.stanford.nlp.trees.EnglishGrammaticalStructure -treeFile testsent.tree -conllx > opinions.conll")
 
-		# print word2idx
+	with open(CONLL_FILE) as inputted_file:
+		lines = inputted_file.read().splitlines()  # read input file
 
-		# Perform LDA if there are any words that are lemmatized. Skip if the content is blank
-		if len(lemmatized_words) > 1:
-			# Create a vector of each word. It will be used to perform LDA
-			vectors = vectorizer.fit_transform(lemmatized_words)
+	node_list = ['NN', 'NNS', 'NNP', 'NNPS', 'PRP', 'JJ']
+	edge_list = ['VB', 'VBN', 'VBD', 'VBG', 'VBP', 'VBZ']
 
-			# Perform LDA on these word vectors
-			lda.fit(vectors)
+	join_node = dict()
+	# store the word with its part of speech
+	graph_list = dict()
 
-			# Get the top words after performing LDA
-			tf_feature_names = vectorizer.get_feature_names()
+	part_of_speech = dict()
+	for line in lines:
+		dep_tree = line.split('\t')
+		#print dep_tree
 
-			# Print the top 10 words (if there are more than 10 words). Write output in HTML file
-			write_output.write("%s \t" %
-							   print_top_words(lda, tf_feature_names, 100, word_order_dict))
-			write_output.write("%s\n" %category)
+		if dep_tree[0] != '':
+			if len(dep_tree) > 1:
+				part_of_speech[dep_tree[0]] = dep_tree[4]
+				# check if it's a noun or verb or any kind of frame
+				if dep_tree[4] in node_list or dep_tree[4] in edge_list \
+						or dep_tree[1] in list_of_justification\
+						or dep_tree[1] in list_of_reason\
+						or dep_tree[1] in list_of_outcome\
+						or dep_tree[1] in list_of_goal:
+					attr = {'word': dep_tree[1], 'type': dep_tree[4]}
+					#print dep_tree[1] + dep_tree[4]
+					value = wordAttr(**attr)
+					graph_list[index] = value
+					index += 1
+		#print dep_tree[0]
+		else:
+			print "New sentence"
+			build_graph(graph_list)
+			graph_list = dict()
+			index = 0
 
-			write_output.close()
 
-			os.system(
-				"java -mx4096m -cp \"/home/aditi/Downloads/stanford-parser-full-2017-06-09/*:\" edu.stanford.nlp.parser.lexparser.LexicalizedParser -sentences \"newline\" -maxLength \"300\" -outputFormat \"penn\" /home/aditi/Downloads/englishPCFG.ser.gz ~/PycharmProjects/TextSummarization/classification/extracted_opinions.txt > testsent.tree")
-			os.system(
-				"java -mx4096m -cp \"/home/aditi/Downloads/stanford-parser-full-2017-06-09/*:\" edu.stanford.nlp.trees.EnglishGrammaticalStructure -treeFile testsent.tree -conllx > opinions.conll")
 
-			with open(CONLL_FILE) as inputted_file:
-				lines = inputted_file.read().splitlines()  # read input file
 
-			for line in lines:
-				dep_tree = line.split('\t')
-				# print (dep_tree[3])
 
-				# Check if there are more lines in the parse tree
-				if len(dep_tree) != 1:
-					if dep_tree[1] in list_of_connectives:
-						flag = 1
-					if dep_tree[3] == 'NOUN':
-						list_words[dep_tree[1]] = 'NOUN'
 
-					if dep_tree[3] == 'VERB':
-						list_words[dep_tree[1]] = 'VERB'
 
-			build_frame(list_words)
 
-			lemmatized_words = list()
 
-		#write_output.write("%s\n" % normal_words)
-		
+
 
 
 
